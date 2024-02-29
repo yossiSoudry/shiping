@@ -42,7 +42,9 @@ const Navbar = () => {
             <SheetTrigger>
               <MenuIcon className="w-8 h-8 text-blue-900" />
             </SheetTrigger>
-            <SheetContent className="min-h-screen flex flex-col justify-between">
+            <SheetContent>
+              <>
+              <div className="min-h-full flex flex-col justify-between">
               <div className="space-y-2 py-4 flex flex-col">
                 {menuItems.map((item, id) => (
                   <SheetClose key={id}>
@@ -77,6 +79,8 @@ const Navbar = () => {
                   </Button>
                 </Link>
               </div>
+              </div>
+              </>
             </SheetContent>
           </Sheet>
         </div>
