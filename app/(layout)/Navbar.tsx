@@ -15,6 +15,8 @@ import {
   Home,
   Layout,
   MenuIcon,
+  Truck,
+  UsersRound,
 } from "lucide-react";
 import NextImage from "next/image";
 import Link from "next/link";
@@ -64,8 +66,9 @@ const Navbar = () => {
                   <Button
                     color="primary"
                     variant="outline"
-                    className="w-full bg-orange-400/90 text-white"
+                    className="w-full bg-orange-400/90 text-white gap-4"
                   >
+                    <Truck className="w-6 h-6" />
                     בירור משלוח
                   </Button>
                 </Link>
@@ -73,8 +76,9 @@ const Navbar = () => {
                   <Button
                     color="primary"
                     variant="outline"
-                    className="w-full bg-blue-900/90 text-white"
+                    className="w-full bg-blue-900/90 text-white gap-4"
                   >
+                    <UsersRound className="w-5 h-5" />
                     כניסת משתמשים
                   </Button>
                 </Link>
