@@ -22,7 +22,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
   const pathname = usePathname();
-  const route = useRouter()
+  const route = useRouter();
 
   const menuItems = [
     { title: "בית", href: "/", icon: <Home /> },
@@ -45,11 +45,11 @@ const Navbar = () => {
             <SheetContent>
               <div className="space-y-2 py-4 flex flex-col">
                 {menuItems.map((item, id) => (
-                  <SheetClose>
-                    <div 
+                  <SheetClose key={id}>
+                    <div
                       id={item.title}
                       className={`flex items-center gap-4 py-2 text-base font-semibold leading-7 text-blue-800 tap-highlight-transparent`}
-                      onClick={()=>route.push(item.href)}
+                      onClick={() => route.push(item.href)}
                     >
                       {item.icon}
                       {item.title}
@@ -74,8 +74,9 @@ const Navbar = () => {
         </div>
 
         <div className="gap-4 hidden lg:flex">
-          {menuItems.map((item) => (
+          {menuItems.map((item, id) => (
             <Link
+              key={id}
               href={item.href}
               aria-current="page"
               className={`whitespace-nowrap text-blue-800 hover:opacity-70 active:text-orange-500 ${
