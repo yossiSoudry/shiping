@@ -15,8 +15,6 @@ import {
   Home,
   Layout,
   MenuIcon,
-  Truck,
-  UsersRound,
 } from "lucide-react";
 import NextImage from "next/image";
 import Link from "next/link";
@@ -44,9 +42,7 @@ const Navbar = () => {
             <SheetTrigger>
               <MenuIcon className="w-8 h-8 text-blue-900" />
             </SheetTrigger>
-            <SheetContent>
-              <>
-              <div className="min-h-full flex flex-col justify-between">
+            <SheetContent className="min-h-screen flex flex-col justify-between">
               <div className="space-y-2 py-4 flex flex-col">
                 {menuItems.map((item, id) => (
                   <SheetClose key={id}>
@@ -66,9 +62,8 @@ const Navbar = () => {
                   <Button
                     color="primary"
                     variant="outline"
-                    className="w-full bg-orange-400/90 text-white gap-4"
+                    className="w-full bg-orange-400/90 text-white"
                   >
-                    <Truck className="w-6 h-6" />
                     בירור משלוח
                   </Button>
                 </Link>
@@ -76,15 +71,12 @@ const Navbar = () => {
                   <Button
                     color="primary"
                     variant="outline"
-                    className="w-full bg-blue-900/90 text-white gap-4"
+                    className="w-full bg-blue-900/90 text-white"
                   >
-                    <UsersRound className="w-5 h-5" />
                     כניסת משתמשים
                   </Button>
                 </Link>
               </div>
-              </div>
-              </>
             </SheetContent>
           </Sheet>
         </div>
@@ -93,7 +85,7 @@ const Navbar = () => {
             <Button
               color="primary"
               variant="outline"
-              className="bg-orange-400/90 text-white"
+              className="bg-orange-400/90 hover:bg-orange-400/70 text-white hover:text-white"
             >
               בירור משלוח
             </Button>
@@ -102,7 +94,7 @@ const Navbar = () => {
             <Button
               color="primary"
               variant="outline"
-              className="bg-blue-900/90 text-white"
+              className="bg-blue-900/90 hover:bg-blue-900/70 text-white hover:text-white"
             >
               כניסת משתמשים
             </Button>
