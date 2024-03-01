@@ -1,7 +1,7 @@
 const page = () => {
   return (
     <div className="flex flex-col gap-4 text-center max-w-2xl mx-auto mt-8">
-      <h2 className="text-4xl text-blue-800 font-semibold">שיפינג שליחויות</h2>
+      <h2 className="text-4xl text-blue-900/90 font-semibold">שיפינג שליחויות</h2>
       <p className="text-xl">
         הינה חברת שילוח, הפצה ולוגיסטיקה ייחודית הפועלת משנת e-commerce 2016
         ומתמחה בשילוח לעסקים ולאתרי עבור חברות מובילות בתעשיה.
