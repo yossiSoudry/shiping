@@ -15,6 +15,8 @@ import {
   Home,
   Layout,
   MenuIcon,
+  ScanBarcode,
+  UsersRound,
 } from "lucide-react";
 import NextImage from "next/image";
 import Link from "next/link";
@@ -62,8 +64,9 @@ const Navbar = () => {
                   <Button
                     color="primary"
                     variant="outline"
-                    className="w-full bg-orange-400/90 text-white"
+                    className="w-full bg-orange-400/90 text-white gap-2"
                   >
+                    <ScanBarcode className="w-4 h-4" />
                     בירור משלוח
                   </Button>
                 </Link>
@@ -71,8 +74,9 @@ const Navbar = () => {
                   <Button
                     color="primary"
                     variant="outline"
-                    className="w-full bg-blue-900/90 text-white"
+                    className="w-full bg-blue-900/90 text-white gap-2"
                   >
+                    <UsersRound className="w-4 h-4"  />
                     כניסת משתמשים
                   </Button>
                 </Link>
@@ -80,13 +84,36 @@ const Navbar = () => {
             </SheetContent>
           </Sheet>
         </div>
+        <div className="hidden md:max-lg:flex gap-4">
+          <Link href="https://members.lionwheel.com/locate/locate_task?org=%D7%A9%D7%99%D7%A4%D7%99%D7%A0%D7%92%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%D7%99%D7%9D">
+            <Button
+              color="primary"
+              variant="outline"
+              size="icon"
+              className="bg-orange-400/90 hover:bg-orange-400/70 text-white hover:text-white gap-2"
+            >
+              <ScanBarcode className="w-5 h-5"  />
+            </Button>
+          </Link>
+          <Link href="https://members.lionwheel.com/?locale=he">
+            <Button
+              color="primary"
+              variant="outline"
+              size="icon"
+              className="bg-blue-900/90 hover:bg-blue-900/70 text-white hover:text-white gap-2"
+            >
+              <UsersRound className="w-5 h-5"  />
+            </Button>
+          </Link>
+        </div>
         <div className="hidden lg:flex gap-4">
           <Link href="https://members.lionwheel.com/locate/locate_task?org=%D7%A9%D7%99%D7%A4%D7%99%D7%A0%D7%92%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%D7%99%D7%9D">
             <Button
               color="primary"
               variant="outline"
-              className="bg-orange-400/90 hover:bg-orange-400/70 text-white hover:text-white"
+              className="bg-orange-400/90 hover:bg-orange-400/70 text-white hover:text-white gap-2"
             >
+              <ScanBarcode className="w-4 h-4"  />
               בירור משלוח
             </Button>
           </Link>
@@ -94,13 +121,14 @@ const Navbar = () => {
             <Button
               color="primary"
               variant="outline"
-              className="bg-blue-900/90 hover:bg-blue-900/70 text-white hover:text-white"
+              className="bg-blue-900/90 hover:bg-blue-900/70 text-white hover:text-white gap-2"
             >
+              <UsersRound className="w-4 h-4"  />
               כניסת משתמשים
             </Button>
           </Link>
         </div>
-        <div className="gap-4 hidden lg:flex">
+        <div className="gap-4 hidden md:flex">
           {menuItems.map((item, id) => (
             <Link
               key={id}

@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={cn(inter.className, "relative min-h-screen") }>
         {/* <Providers> */}
           <Navbar />
-          <div className="h-screen p-4 pt-20 relative">
+          <div className="h-screen pt-20 relative">
             {children}
             </div>
             <a href="https://wa.me/972539231086" className="fixed left-4 bottom-4">
