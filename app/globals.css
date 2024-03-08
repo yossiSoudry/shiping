@@ -8,6 +8,26 @@ body,
   height: 100%;
   direction: rtl;
 }
+
+.bg-container {
+  position: relative;
+  width: 100%; /* או כל רוחב ספציפי שאתה רוצה */
+  height: 1000px; /* גובה ספציפי, שניתן להתאים לצרכיך */
+  overflow: hidden;
+}
+
+.bg-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: url('/assets/about/background-1.jpg'); */
+  background-size: cover;
+  opacity: 0.2; /* הגדר את שקיפות התמונה כאן */
+  z-index: 1;
+}
  
 @layer base {
   :root {

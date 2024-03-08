@@ -5,9 +5,9 @@ import React from "react";
 
 export function HeroImages() {
   const images = [
-    "/assets/mini-truck-brand.png",
-    "/assets/mini-van.png",
-    "/assets/truck.png",
+    "/assets/logos/mini-truck-brand.png",
+    "/assets/logos/mini-van.png",
+    "/assets/logos/truck.png",
   ];
   return (
     <ImagesSlider className="h-[20rem]" images={images}>

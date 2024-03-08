@@ -153,7 +153,7 @@ const Navbar = () => {
             as={NextImage}
             width={200}
             height={80}
-            src="/assets/logo.png"
+            src="/assets/logos/logo.png"
             alt="Logo"
             priority
           />

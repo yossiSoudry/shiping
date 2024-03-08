@@ -90,7 +90,7 @@ export const ImagesSlider = ({
       opacity: 1,
       x: "150%",
       transition: {
-        duration: 7,
+        duration: 9,
         ease: "linear"
       },
     },
@@ -98,7 +98,7 @@ export const ImagesSlider = ({
       opacity: 1,
       x: "-150%",
       transition: {
-        duration: 8,
+        duration: 9,
         // ease: "ease-in-out"
       },
     },
@@ -114,7 +114,7 @@ export const ImagesSlider = ({
       opacity: 1,
       x: "150%",
       transition: {
-        duration: 10,
+        duration: 9,
         // ease: "ease-in-out"
       },
     },
