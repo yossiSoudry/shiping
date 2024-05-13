@@ -3,6 +3,11 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
+type ImageType = {
+  src: string;
+  alt: string;
+};
+
 export const ImagesSlider = ({
   images,
   children,
@@ -12,7 +17,7 @@ export const ImagesSlider = ({
   autoplay = true,
   direction = "up",
 }: {
-  images: string[];
+  images: ImageType[];
   children: React.ReactNode;
   overlay?: React.ReactNode;
   overlayClassName?: string;
@@ -22,7 +27,8 @@ export const ImagesSlider = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [loadedImages, setLoadedImages] = useState<string[]>([]);
+  const [loadedImages, setLoadedImages] = useState<ImageType[]>([]);
+
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
@@ -43,21 +49,26 @@ export const ImagesSlider = ({
   const loadImages = () => {
     setLoading(true);
     const loadPromises = images.map((image) => {
-      return new Promise((resolve, reject) => {
+      return new Promise<ImageType>((resolve, reject) => {
         const img = new Image();
-        img.src = image;
-        img.onload = () => resolve(image);
+        img.src = image.src;
+        img.onload = () => resolve({
+          src: img.src,
+          alt: image.alt // אנחנו מחזירים את ה-alt מהאובייקט המקורי
+        });
         img.onerror = reject;
       });
     });
-
+  
     Promise.all(loadPromises)
       .then((loadedImages) => {
-        setLoadedImages(loadedImages as string[]);
+        setLoadedImages(loadedImages); // כעת אנו מגדירים את loadedImages כמערך של ImageType
         setLoading(false);
       })
       .catch((error) => console.error("Failed to load images", error));
   };
+  
+  
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight") {
@@ -128,9 +139,7 @@ export const ImagesSlider = ({
         "overflow-hidden h-full w-full relative flex items-center justify-center",
         className
       )}
-      style={{
-        perspective: "1000px",
-      }}
+      style={{ perspective: "1000px" }}
     >
       {areImagesLoaded && children}
       {areImagesLoaded && overlay && (
@@ -141,7 +150,8 @@ export const ImagesSlider = ({
         <AnimatePresence>
           <motion.img
             key={currentIndex}
-            src={loadedImages[currentIndex]}
+            src={loadedImages[currentIndex].src} // עדכון לקוד החדש
+            alt={loadedImages[currentIndex].alt} // הוספת alt
             initial="initial"
             animate="visible"
             exit={direction === "up" ? "upExit" : "downExit"}
