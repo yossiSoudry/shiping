@@ -1,6 +1,10 @@
 'use client'
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { Container } from "lucide-react";
+import { FaShippingFast } from "react-icons/fa";
+import { GrTechnology } from "react-icons/gr";
+import { MdEco, MdFollowTheSigns } from "react-icons/md";
+import { RiServiceFill } from "react-icons/ri";
 
 export function CardHoverEffect() {
   return (
@@ -13,31 +17,31 @@ export const projects = [
   {
     icon: <Container className="w-20 h-20" />,
     description:
-      "בגלל השירות",
+      "בגלל השירות. אנחנו זמינים סביב השעון לכל פניה שלכם ושל הלקוחות שלכם",
   },
   {
-    icon: <Container className="w-20 h-20" />,
+    icon: <RiServiceFill className="w-20 h-20" />,
     description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
+      "מענה אישי ואנושי ללקוחות שלכם",
   },
   {
-    icon: <Container className="w-20 h-20" />,
+    icon: <FaShippingFast className="w-20 h-20" />,
     description:
-      "A multinational technology company that specializes in Internet-related services and products.",
+      "פריסה ארצית מקצה לקצה. נמסור את החבילות שלך בכל נקודה בארץ",
   },
   {
-    icon: <Container className="w-20 h-20" />,
+    icon: <GrTechnology className="w-20 h-20" />,
     description:
-      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
+      "טכנולוגיה מתקדמת להזנת משלוחים ולמעקב אחריהם.",
   },
   {
-    icon: <Container className="w-20 h-20" />,
+    icon: <MdEco className="w-20 h-20" />,
     description:
-      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
+      "התממשקות עם כלל אתרי האיקומרס.",
   },
   {
-    icon: <Container className="w-20 h-20" />,
+    icon: <MdFollowTheSigns className="w-20 h-20" />,
     description:
-      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+      "מעקב אחרי המשלוחים בזמן אמת. תמיכה במערכות ניהול מלאי ומערכות ניהול חבילות.",
   },
 ];
