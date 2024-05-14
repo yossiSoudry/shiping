@@ -20,7 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "relative min-h-screen") }>
+      <body 
+      className={
+        cn(
+        inter.className, 
+        // "relative min-h-screen"
+        ) 
+        }
+        >
         {/* <Providers> */}
           <Navbar />
           <div className="h-screen pt-20 relative">

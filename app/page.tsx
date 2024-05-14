@@ -4,7 +4,6 @@ import HeroTestimonials from "./HeroTestimonials";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { CardHoverEffect } from "./HeroCardHoverEffect";
 
-
 export default function Home() {
   return (
     <div className="">
@@ -28,7 +27,10 @@ export default function Home() {
           /> */}
         </div>
       </div>
-   <CardHoverEffect />
+      <CardHoverEffect />
+      <h2 className="text-4xl text-center text-orange-500 my-6">
+        מה הלקוחות שלנו אומרים?       
+      </h2>
       <HeroTestimonials />
     </div>
   );
