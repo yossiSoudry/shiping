@@ -30,7 +30,7 @@ export default function RootLayout({
             <MdOutlineWhatsapp className="w-12 h-12 text-green-500 bg-white rounded-full" />
             </a>
         {/* </Providers> */}
-        <script src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-59023/init.js"></script>
+        <script defer src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-59023/init.js"></script>
       </body>
     </html>
   );

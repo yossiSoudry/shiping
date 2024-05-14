@@ -43,30 +43,31 @@ export const ImagesSlider = ({
   };
 
   useEffect(() => {
+    const loadImages = () => {
+      setLoading(true);
+      const loadPromises = images.map((image) => {
+        return new Promise<ImageType>((resolve, reject) => {
+          const img = new Image();
+          img.src = image.src;
+          img.onload = () => resolve({
+            src: img.src,
+            alt: image.alt
+          });
+          img.onerror = reject;
+        });
+      });
+  
+      Promise.all(loadPromises)
+        .then((loadedImages) => {
+          setLoadedImages(loadedImages);
+          setLoading(false);
+        })
+        .catch((error) => console.error("Failed to load images", error));
+    };
+  
     loadImages();
   }, []);
-
-  const loadImages = () => {
-    setLoading(true);
-    const loadPromises = images.map((image) => {
-      return new Promise<ImageType>((resolve, reject) => {
-        const img = new Image();
-        img.src = image.src;
-        img.onload = () => resolve({
-          src: img.src,
-          alt: image.alt // אנחנו מחזירים את ה-alt מהאובייקט המקורי
-        });
-        img.onerror = reject;
-      });
-    });
   
-    Promise.all(loadPromises)
-      .then((loadedImages) => {
-        setLoadedImages(loadedImages); // כעת אנו מגדירים את loadedImages כמערך של ImageType
-        setLoading(false);
-      })
-      .catch((error) => console.error("Failed to load images", error));
-  };
   
   
   useEffect(() => {
@@ -77,24 +78,24 @@ export const ImagesSlider = ({
         handlePrevious();
       }
     };
-
+  
     window.addEventListener("keydown", handleKeyDown);
-
-    // autoplay
+  
     let interval: any;
     if (autoplay) {
       interval = setInterval(() => {
         handleNext();
       }, 5000);
     }
-
+  
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       clearInterval(interval);
     };
-  }, []);
+  }, [handleNext, handlePrevious, autoplay]); // הוספת תלותות
+  
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   const slideVariants = {
     initial: {
