@@ -17,6 +17,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^10.18.0",
+    "@lottiefiles/dotlottie-react": "^0.12.1",
     "lucide-react": "^0.312.0",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.1.0",
