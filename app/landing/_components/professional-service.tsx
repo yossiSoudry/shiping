@@ -2,10 +2,13 @@ import Image from "next/image";
 
 const ProfessionalService = () => {
   return (
-    <div className="container mx-auto my-20 flex flex-col items-start px-10 py-10 text-gray font-heebo">
+    <div className="container mx-auto my-20 flex flex-col items-start px-10 py-10 text-gray font-heebo pt-32">
       {/* כותרת */}
       <h3 className="text-4xl font-bold mb-10 text-right">
-        האקסטרה שלנו - כי אנחנו מאמינים שהאחריות עלינו
+        האקסטרה שלנו...
+      </h3>
+      <h3 className="text-4xl font-bold mb-10 text-right">
+        כי אנחנו מאמינים שהאחריות עלינו
       </h3>
 
       {/* רשימה */}

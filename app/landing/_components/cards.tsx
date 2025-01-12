@@ -112,7 +112,7 @@ const Cards = () => {
       </div>
       <div className="bg-sky-800 flex h-40 items-center justify-center">
         <h2 className="text-2xl text-center md:text-5xl font-light text-white">
-          שולחים עם שיפינג, 
+          שולחים עם שיפינג - {" "}
           <br className="md:hidden" />
           ראש שקט ועסק שדופק
         </h2>

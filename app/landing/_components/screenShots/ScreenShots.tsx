@@ -3,9 +3,9 @@ import Image from "next/image";
 const ScreenShots = () => {
   return (
     <div>
-      <div className="flex container pt-20">
-        <div className="flex-1 relative flex items-end">
-          <div className="flex flex-col items-end absolute -top-96 left-[30%]">
+      <div className="flex flex-col lg:flex-row container pt-20">
+        <div className="lg:w-1/2 relative flex items-end">
+          <div className="flex flex-col items-center lg:items-end justify-start absolute -top-96 w-full lg:left-[30%]">
             <Image
               className="object-contain z-[3]"
               width={280}
@@ -23,7 +23,7 @@ const ScreenShots = () => {
             />
           </div>
         </div>
-        <div className="flex-1 flex flex-col gap-4 pt-10">
+        <div className="flex lg:w-1/2 flex-col gap-4 max-lg:mx-auto lg:ml-auto max-w-fit pt-96 lg:pt-10">
           <p className="text-4xl text-sky-800 font-bold">
             מעקב אחרי המשלוח בזמן אמת
           </p>
@@ -38,9 +38,9 @@ const ScreenShots = () => {
           </ul>
         </div>
       </div>
-      <div className="flex container pt-20">
-        <div className="flex-1 flex justify-end">
-          <div className="flex flex-col gap-4 pt-32 mr-auto max-w-fit">
+      <div className="flex flex-col-reverse lg:flex-row container pt-20">
+        <div className="flex-1 flex justify-center lg:justify-end">
+          <div className="flex flex-col gap-4 pt-32 mx-auto lg:mr-auto max-w-fit">
             <p className="text-4xl text-sky-800 font-bold">
               הפקת דוחות מסודרים בכל זמן
             </p>
@@ -54,7 +54,7 @@ const ScreenShots = () => {
             </ul>
           </div>
         </div>
-        <div className="flex-1 relative flex items-start mt-10">
+        <div className="flex-1 relative items-start mt-10 hidden 2xl:flex">
           <Image
             className="object-contain z-[4] mt-0"
             loading="lazy"
@@ -67,6 +67,23 @@ const ScreenShots = () => {
             className="object-contain z-[3]"
             width={600}
             height={400}
+            alt=""
+            src="/desktop.png"
+          />
+        </div>
+        <div className="flex-1 items-end lg:flex-row relative justify-center lg:justify-start mt-10 flex 2xl:hidden p-4 max-w-full">
+          <Image
+            className="object-contain z-[4] mt-0 rotate-90"
+            loading="lazy"
+            width={100}
+            height={80}
+            alt=""
+            src="/arrow-5.png"
+          />
+          <Image
+            className="object-contain z-[3]"
+            width={500}
+            height={300}
             alt=""
             src="/desktop.png"
           />
