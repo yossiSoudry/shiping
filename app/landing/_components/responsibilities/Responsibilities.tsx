@@ -5,7 +5,7 @@ const Responsibilities = () => {
   return (
     <div>
       <div className="flex flex-col lg:flex-row pt-20">
-        <div className="lg:w-1/2 xl:px-20">
+        <div className="lg:w-1/2 px-4 xl:px-20">
           <div className="max-w-3xl flex flex-col gap-4">
             <div>
               <MoveDown className="size-20 text-sky-800" />
@@ -109,7 +109,7 @@ const Responsibilities = () => {
               src="/arrow-6.svg"
             />
           </div>
-          <h1 className="text-sky-800 font-light text-6xl text-nowrap">
+          <h1 className="text-sky-800 font-light text-6xl lg:text-nowrap">
             ואנחנו יודעים לקחת אחריות!
           </h1>
           <div className="">

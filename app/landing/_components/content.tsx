@@ -26,17 +26,17 @@ const Content = () => {
           </div>
         </div>
       </div>
-      <div className="flex-1 flex flex-col gap-16 pt-16 pr-16">
-        <div className="mb-4 text-3xl font-light leading-relaxed">
+      <div className="flex-1 flex flex-col gap-16 pt-16">
+        <div className="mb-4 text-3xl font-light leading-relaxed pr-16">
           <p className="m-0">
             עם נסיון ארוך ומרכזים לוגיסטיים הפועלים מסביב לשעון
           </p>
           <p className="m-0">אנחנו מנגישים לכם שירותי לוגיסטיקה</p>
           <p className="m-0">שהפכו להצלחה עבור לקוחות אסטרטגיים</p>
         </div>
-        <div className="text-sky-800 pr-16 leading-relaxed">
-          <h2 className="text-5xl font-bold m-0 leading-relaxed">E2E לוגיסטיקה</h2>
-          <h1 className="text-5xl font-extralight m-0 mt-1 leading-relaxed">
+        <div className="max-lg:bg-sky-800 text-white lg:text-sky-800 pr-16 pb-6 pt-6 leading-relaxed">
+          <h2 className="text-4xl lg:text-5xl font-bold m-0 leading-relaxed max-lg:text-center">E2E לוגיסטיקה</h2>
+          <h1 className="text-3xl lg:text-5xl font-extralight m-0 mt-1 leading-relaxed max-lg:text-center">
             End-to-End Logistics
           </h1>
         </div>

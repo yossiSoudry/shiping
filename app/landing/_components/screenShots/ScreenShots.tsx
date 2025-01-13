@@ -5,16 +5,31 @@ const ScreenShots = () => {
     <div>
       <div className="flex flex-col lg:flex-row container pt-20">
         <div className="lg:w-1/2 relative flex items-end">
-          <div className="flex flex-col items-center lg:items-end justify-start absolute -top-96 w-full lg:left-[30%]">
+          <div className="flex lg:flex-col items-end justify-center lg:justify-start absolute -top-96 w-full lg:left-[30%]">
             <Image
-              className="object-contain z-[3]"
+              className="object-contain z-[3] hidden lg:block"
               width={280}
               height={500}
               alt=""
-              src="/phone.png"
+              src="/smartphone.png"
             />
             <Image
-              className="object-contain z-[4]"
+              className="object-contain z-[3] lg:hidden"
+              width={160}
+              height={200}
+              alt=""
+              src="/smartphone.png"
+            />
+            <Image
+              className="object-contain z-[4] hidden lg:block"
+              loading="lazy"
+              width={124}
+              height={99}
+              alt=""
+              src="/arrow-4.png"
+            />
+            <Image
+              className="object-contain z-[4] lg:hidden rotate-90 scale-x-[-1]"
               loading="lazy"
               width={124}
               height={99}
@@ -23,7 +38,7 @@ const ScreenShots = () => {
             />
           </div>
         </div>
-        <div className="flex lg:w-1/2 flex-col gap-4 max-lg:mx-auto lg:ml-auto max-w-fit pt-96 lg:pt-10">
+        <div className="flex lg:w-1/2 flex-col gap-4 max-lg:mx-auto lg:ml-auto max-w-fit pt-10">
           <p className="text-4xl text-sky-800 font-bold">
             מעקב אחרי המשלוח בזמן אמת
           </p>
@@ -68,10 +83,27 @@ const ScreenShots = () => {
             width={600}
             height={400}
             alt=""
-            src="/desktop.png"
+            src="/light-desktop.png"
           />
         </div>
-        <div className="flex-1 items-end lg:flex-row relative justify-center lg:justify-start mt-10 flex 2xl:hidden p-4 max-w-full">
+        <div className="flex-1 relative items-start mt-10 hidden lg:flex 2xl:hidden">
+          <Image
+            className="object-contain z-[4] mt-0"
+            loading="lazy"
+            width={104}
+            height={80}
+            alt=""
+            src="/arrow-5.png"
+          />
+          <Image
+            className="object-contain z-[3]"
+            width={400}
+            height={350}
+            alt=""
+            src="/light-desktop.png"
+          />
+        </div>
+        <div className="flex-1 items-end lg:flex-row relative justify-center lg:justify-start mt-10 flex lg:hidden p-4 max-w-full">
           <Image
             className="object-contain z-[4] mt-0 rotate-90"
             loading="lazy"
@@ -82,10 +114,10 @@ const ScreenShots = () => {
           />
           <Image
             className="object-contain z-[3]"
-            width={500}
-            height={300}
+            width={200}
+            height={200}
             alt=""
-            src="/desktop.png"
+            src="/light-desktop.png"
           />
         </div>
       </div>

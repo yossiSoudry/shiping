@@ -74,11 +74,11 @@ const Hero = () => {
               className="absolute bottom-40 -left-8"
             />
             <Image
-              src="/courier.png"
+              src="/main-driver-Mobile.png"
               alt="שליח"
               width={300}
               height={500}
-              className="absolute bottom-8  left-[55%]"
+              className="absolute bottom-8 scale-x-[-1] left-[55%]"
             />
             <div
               style={{ width: "140px", height: "140px" }}
@@ -106,11 +106,11 @@ const Hero = () => {
               className="absolute bottom-40 -left-16"
             />
             <Image
-              src="/courier.png"
+              src="/main-driver-Mobile.png"
               alt="שליח"
               width={300}
               height={500}
-              className="absolute bottom-8  left-[55%]"
+              className="absolute bottom-8 scale-x-[-1] left-[55%]"
             />
             <div
               style={{ width: "140px", height: "140px" }}
@@ -138,11 +138,11 @@ const Hero = () => {
               className="absolute bottom-40 -left-20"
             />
             <Image
-              src="/courier.png"
+              src="/main-driver-Mobile.png"
               alt="שליח"
               width={300}
               height={500}
-              className="absolute bottom-8  left-[60%]"
+              className="absolute bottom-8 scale-x-[-1] left-[60%]"
             />
             <div
               style={{ width: "140px", height: "140px" }}
@@ -170,11 +170,11 @@ const Hero = () => {
               className="absolute -top-[70px] -left-4"
             />
             <Image
-              src="/courier.png"
+              src="/main-driver-Mobile.png"
               alt="שליח"
               width={120}
               height={200}
-              className="absolute -top-16 scale-x-[-1] left-[46%]"
+              className="absolute -top-16 left-[46%]"
             />
             <div
               style={{ width: "140px", height: "140px" }}
@@ -202,11 +202,11 @@ const Hero = () => {
               className="absolute -top-2 -left-0"
             />
             <Image
-              src="/courier.png"
+              src="/main-driver-Mobile.png"
               alt="שליח"
               width={100}
               height={200}
-              className="absolute -top-16 scale-x-[-1] left-[46%]"
+              className="absolute -top-16 left-[46%]"
             />
             <div
               style={{ width: "70px", height: "70px" }}
@@ -234,11 +234,11 @@ const Hero = () => {
               className="absolute -top-0 -left-0"
             />
             <Image
-              src="/courier.png"
+              src="/main-driver-Mobile.png"
               alt="שליח"
               width={80}
               height={160}
-              className="absolute -top-0 scale-x-[-1] left-[60%]"
+              className="absolute -top-0 left-[60%]"
             />
             <div
               style={{ width: "70px", height: "70px" }}
