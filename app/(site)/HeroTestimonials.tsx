@@ -7,7 +7,7 @@ import { ScrollParallax } from "react-just-parallax";
 export function HeroTestimonials() {
   return (
     <div className="relative">
-      <ScrollParallax isAbsolutelyPositioned>
+      <ScrollParallax>
         <div className="h-96 flex items-center justify-center w-full">
           <CardStack items={CARDS} />
         </div>

@@ -40,8 +40,10 @@ const Process: NextPage<ProcessType> = ({ className = "" }) => {
         <b>ואתה תוכל להתרכז בניהול העסק שלך.</b>
       </div>
       <div className="flex flex-col items-center justify-center w-full relative">
-        <div className="bg-sky-800 w-full p-20 text-white relative h-[400px]">
-          <h2 className="text-5xl font-extralight mb-20 text-center">למי שירות E2E מתאים?</h2>
+        <div className="bg-sky-800 w-full p-20 text-white relative min-h-[800px] lg:h-[400px]">
+          <h2 className="text-5xl font-extralight mb-20 text-center">
+            למי שירות E2E מתאים?
+          </h2>
           <div className="flex items-start justify-between gap-10 xl:px-20">
             <div className="w-1/4">
               <h3 className="text-3xl font-semibold">בעלי חנויות אונליין</h3>
@@ -67,11 +69,11 @@ const Process: NextPage<ProcessType> = ({ className = "" }) => {
           </div>
         </div>
 
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-        <LidForm title />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full max-w-full mx-auto flex justify-center">
+          <LidForm title />
         </div>
 
-        <div className="bg-orange-200 w-full p-20 text-white relative flex justify-center h-[400px]">
+        <div className="bg-orange-200 w-full max-lg:pt-44 p-4 sm:p-20 text-white relative flex justify-center h-[800px] lg:h-[400px]">
           <div className="flex items-start justify-start gap-6 flex-col w-fit">
             <h2 className="text-sky-800 text-5xl font-semibold mt-10">מערכת</h2>
             <h2 className="text-sky-800 text-5xl font-extralight">

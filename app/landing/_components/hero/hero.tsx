@@ -20,7 +20,7 @@ const Hero = () => {
       <div className="absolute -top-20 lg:top-20 -left-96 xl:left-0 min-w-[240%] h-[125%] bg-orange-100 transform -translate-y-[20%] -translate-x-[10%] -rotate-[14deg] origin-top-left" />
       <div className="absolute -top-36 left-2 z-20 hidden md:block">
         <Image
-          src="/לוגו.svg"
+          src="/logo.svg"
           alt="Shipping Logo"
           width={400}
           height={120}
@@ -29,7 +29,7 @@ const Hero = () => {
       </div>
       <div className="absolute -top-24 -left-4 z-20 md:hidden">
         <Image
-          src="/לוגו.svg"
+          src="/logo.svg"
           alt="Shipping Logo"
           width={200}
           height={80}
