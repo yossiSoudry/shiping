@@ -1,16 +1,18 @@
+import { cn } from "@nextui-org/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "../globals.css";
-import { Providers } from "./(layout)/Providers";
-import Navbar from "./(layout)/Navbar";
 import { MdOutlineWhatsapp } from "react-icons/md";
-import { cn } from "@nextui-org/react";
+import "../globals.css";
+import Navbar from "./(layout)/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "שיפינג שליחויות",
   description: "שילוח | הפצה | לוגיסטיקה",
+  icons: {
+    icon: [{ url: "/symbol.png", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({

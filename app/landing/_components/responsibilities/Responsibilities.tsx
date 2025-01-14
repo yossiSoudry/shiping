@@ -13,15 +13,13 @@ const Responsibilities = () => {
             <div className="">
               <h3 className="text-4xl font-light text-right">
                 לוקחים אחריות על{" "}
-                <span className="text-sky-800 font-bold">
-                  הכספים שלכם!
-                </span>
+                <span className="text-sky-800 font-bold">הכספים שלכם!</span>
               </h3>
               <h4 className="text-2xl font-semibold text-right mb-2">
                 הכסף עובר אליכם ללא עיכובים והפסדים
               </h4>
               <p className="text-lg text-gray-700 text-right">
-               {` שירות קבלת הכספים מהלקוחות שלכם כולל מערכת מעקב מתקדמת שמביאה
+                {` שירות קבלת הכספים מהלקוחות שלכם כולל מערכת מעקב מתקדמת שמביאה
                 סדר ושקיפות לכל שלב בתהליך. אנחנו אוספים את התשלומים – בצ'קים או
                 במזומן – ומבצעים קיזוז וחישוב מדויק של עלות המשלוח. בסוף כל
                 חודש, תקבלו דו”ח מסודר עם כל הנתונים, כך שתמיד תדעו כמה כסף
@@ -35,9 +33,7 @@ const Responsibilities = () => {
             <div className="">
               <h3 className="text-4xl font-light text-right">
                 לוקחים אחריות על{" "}
-                <span className="text-sky-800 font-bold">
-                  התכולה שלכם!
-                </span>
+                <span className="text-sky-800 font-bold">התכולה שלכם!</span>
               </h3>
               <h4 className="text-2xl font-semibold text-right mb-2">
                 מוצר שביר או רגיש לחום?
@@ -57,9 +53,7 @@ const Responsibilities = () => {
             <div>
               <h3 className="text-4xl font-light text-right">
                 לוקחים אחריות על{" "}
-                <span className="text-sky-800 font-bold">
-                  השירות שלכם!
-                </span>
+                <span className="text-sky-800 font-bold">השירות שלכם!</span>
               </h3>
               <h4 className="text-2xl font-semibold text-right mb-2">
                 לוקחים אישית את הלקוחות שלכם
@@ -74,34 +68,46 @@ const Responsibilities = () => {
             </div>
           </div>
         </div>
-        <div className="lg:w-1/2 flex items-center justify-end relative pt-20">
-          <div className="relative h-[642px] w-[592px]">
+        <div className="w-full lg:w-1/2 flex items-center justify-end relative pt-20 lg:pr-20">
+          <div className="relative w-full lg:h-[642px] lg:w-[592px]">
+            {/* תמונה ראשית - במחשב בדיוק כמו המקור */}
             <Image
-              className="rounded-r-[52px] absolute top-0 right-0 object-cover"
+              className="lg:rounded-r-[52px] lg:rounded-l-none lg:absolute lg:top-0 lg:right-0 lg:object-cover
+                 w-full rounded-[32px] md:rounded-[52px]" // סגנון למובייל
               width={592}
               height={642}
               alt=""
               src="/driver-1.png"
             />
-            <Image
-              className="rounded-[52px] absolute -top-20 -right-20 object-cover z-[1]"
-              loading="lazy"
-              width={286}
-              height={286}
-              alt=""
-              src="/driver-2.png"
-            />
+
+            {/* תמונה קטנה - במחשב בדיוק כמו המקור */}
+            <div
+              className={`
+      lg:rounded-[52px] lg:absolute lg:-top-20 lg:-right-20 lg:w-[286px] lg:h-[286px]
+      absolute w-[200px] aspect-square left-1/2 -translate-x-1/2 lg:left-auto lg:-translate-x-0
+      -bottom-[100px] lg:bottom-auto z-[1]
+    `}
+            >
+              <Image
+                className="rounded-[52px] object-cover w-full h-full"
+                loading="lazy"
+                width={286}
+                height={286}
+                alt=""
+                src="/driver-2.png"
+              />
+            </div>
           </div>
         </div>
       </div>
       <div className="w-full mt-20">
-        <h3 className="text-4xl text-black text-center">
+        <h3 className="text-4xl text-black text-center p-4">
           הלקוחות שלנו כבר יודעים, אחריות זה שם המשחק בלהיות הכי טובים
         </h3>
         <div className="container mx-auto flex justify-between items-center mt-10 gap-10">
           <div className="">
             <Image
-              className="w-[378px] h-[14.7px] relative"
+              className="w-[378px] h-[14.7px] relative max-sm:hidden"
               loading="lazy"
               width={378}
               height={15}

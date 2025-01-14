@@ -8,7 +8,7 @@ export type ProcessType = {
 
 const Process: NextPage<ProcessType> = ({ className = "" }) => {
   return (
-    <div className="max-lg:bg-sky-800 max-lg:text-white flex flex-col items-center justify-center w-full">
+    <div className="max-lg:bg-sky-800 max-lg:text-white flex flex-col items-center justify-center w-full lg:mt-20">
       <div className="w-full flex flex-row items-end justify-start flex-wrap content-end gap-[31px] max-w-full mq900:gap-[15px]">
         <div className="lg:flex-1 mx-auto flex flex-row max-lg:flex-col lg:items-center justify-center gap-6 lg:gap-10 pr-6">
           <div className="flex items-center gap-6">

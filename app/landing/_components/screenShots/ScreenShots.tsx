@@ -173,7 +173,7 @@ const ScreenShots = () => {
         </div>
         <section
           dir="rtl"
-          className="text-2xl font-heebo text-black text-center container mx-auto"
+          className="text-2xl font-heebo text-black text-center container mx-auto p-4"
         >
           בנוסף, במידת הצורך, אנו מציעים התממשקות API מתקדמת, המאפשרת חיבור ישיר
           ומדויק למערכות שלכם, לשיפור תהליכי העבודה והאוטומציה. כך תיהנו משירות

@@ -4,6 +4,7 @@ import Image from "next/image";
 import LidForm from "../LidForm";
 import dynamic from "next/dynamic";
 
+
 const Hero = () => {
   const DotLottieReact = dynamic(
     () =>
@@ -22,8 +23,8 @@ const Hero = () => {
         <Image
           src="/logo.svg"
           alt="Shipping Logo"
-          width={400}
           height={120}
+          width={400}
           priority
         />
       </div>
@@ -31,8 +32,8 @@ const Hero = () => {
         <Image
           src="/logo.svg"
           alt="Shipping Logo"
-          width={200}
           height={80}
+          width={200}
           priority
         />
       </div>
