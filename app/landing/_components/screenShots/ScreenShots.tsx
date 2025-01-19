@@ -3,7 +3,7 @@ import Image from "next/image";
 const ScreenShots = () => {
   return (
     <div>
-      <div className="flex flex-col lg:flex-row container pt-20">
+      <div className="flex flex-col lg:flex-row container pt-20 p-4">
         <div className="lg:w-1/2 relative flex items-end">
           <div className="flex lg:flex-col items-end justify-center lg:justify-start absolute -top-96 w-full lg:left-[30%]">
             <Image
@@ -53,7 +53,7 @@ const ScreenShots = () => {
           </ul>
         </div>
       </div>
-      <div className="flex flex-col-reverse lg:flex-row container pt-20">
+      <div className="flex flex-col-reverse lg:flex-row container pt-20 p-4">
         <div className="flex-1 flex justify-center lg:justify-end">
           <div className="flex flex-col gap-4 pt-32 mx-auto lg:mr-auto max-w-fit">
             <p className="text-4xl text-sky-800 font-bold">
