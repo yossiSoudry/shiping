@@ -5,8 +5,8 @@ import HeroTestimonials from "@/app/(site)/HeroTestimonials";
 const Reviews = () => {
   return (
     <div>
-      <section className="w-full flex flex-col items-center bg-[url('/bg-3.svg')] bg-cover bg-no-repeat p-10 mt-20">
-        <div className="w-full container mx-auto grid grid-cols-2 gap-10">
+      <section className="w-full flex flex-col items-center bg-[url('/bg-3.svg')] bg-cover bg-no-repeat max-md:py-20 p-4 md:p-10 md:mt-20">
+        <div className="w-full container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* עמוד ימני - טקסטים */}
           <div className="flex flex-col items-start space-y-10 mt-20">
             {/* כותרות */}
@@ -29,7 +29,7 @@ const Reviews = () => {
           </div>
 
           {/* עמוד שמאלי - תמונה וכיתוב */}
-          <div className="flex flex-col items-end relative -mt-24">
+          <div className="hidden md:flex flex-col items-end relative -mt-24">
             <Image
               className="rotate-[-2deg]"
               width={600}
@@ -45,7 +45,7 @@ const Reviews = () => {
         </div>
           <div className="min-w-full -mb-80 overflow-hidden flex justify-evenly">
             <Image
-              className="w-[249.4px] h-[254.1px]  object-contain z-[1]"
+              className="w-[249.4px] h-[254.1px]  object-contain z-[1] hidden md:block"
               loading="lazy"
               width={249}
               height={254}
@@ -54,7 +54,7 @@ const Reviews = () => {
             />
               <HeroTestimonials />
             <Image
-              className="w-[249.4px] h-[254.1px]  object-contain z-[1]"
+              className="w-[249.4px] h-[254.1px]  object-contain z-[1] hidden md:block"
               loading="lazy"
               width={249}
               height={254}

@@ -75,11 +75,11 @@ const Hero = () => {
               className="absolute bottom-40 -left-8"
             />
             <Image
-              src="/main-driver-Mobile.png"
+              src="/main-driver.png"
               alt="שליח"
               width={300}
               height={500}
-              className="absolute bottom-8 scale-x-[-1] left-[55%]"
+              className="absolute bottom-8 left-[55%]"
             />
             <div
               style={{ width: "140px", height: "140px" }}
@@ -107,11 +107,11 @@ const Hero = () => {
               className="absolute bottom-40 -left-16"
             />
             <Image
-              src="/main-driver-Mobile.png"
+              src="/main-driver.png"
               alt="שליח"
               width={300}
               height={500}
-              className="absolute bottom-8 scale-x-[-1] left-[55%]"
+              className="absolute bottom-8 left-[55%]"
             />
             <div
               style={{ width: "140px", height: "140px" }}
@@ -139,11 +139,11 @@ const Hero = () => {
               className="absolute bottom-40 -left-20"
             />
             <Image
-              src="/main-driver-Mobile.png"
+              src="/main-driver.png"
               alt="שליח"
               width={300}
               height={500}
-              className="absolute bottom-8 scale-x-[-1] left-[60%]"
+              className="absolute bottom-8 left-[60%]"
             />
             <div
               style={{ width: "140px", height: "140px" }}
