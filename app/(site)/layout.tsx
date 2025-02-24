@@ -27,7 +27,6 @@ export default function RootLayout({
       <body
         className={cn(
           inter.className
-          // "relative min-h-screen"
         )}
       >
         <Script id="fb-pixel" strategy="afterInteractive">
@@ -40,7 +39,7 @@ export default function RootLayout({
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1311176330033934');
+            fbq('init', '1142440123747409');
             fbq('track', 'PageView');
           `}
         </Script>
@@ -50,7 +49,7 @@ export default function RootLayout({
             width={1}
             alt="Facebook Pixel"
             style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1311176330033934&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=1142440123747409&ev=PageView&noscript=1"
           />
         </noscript>
         <Navbar />
