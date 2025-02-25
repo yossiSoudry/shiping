@@ -23,13 +23,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="he" dir="rtl">
       <body
         className={cn(
           inter.className
         )}
       >
-        <Script id="fb-pixel" strategy="afterInteractive">
+        {/* <Script id="fb-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -42,8 +42,8 @@ export default function RootLayout({
             fbq('init', '1142440123747409');
             fbq('track', 'PageView');
           `}
-        </Script>
-        <noscript>
+        </Script> */}
+        {/* <noscript>
           <Image
             height={1}
             width={1}
@@ -51,7 +51,7 @@ export default function RootLayout({
             style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=1142440123747409&ev=PageView&noscript=1"
           />
-        </noscript>
+        </noscript> */}
         <Navbar />
         <div className="h-screen pt-20 relative">{children}</div>
         <a
@@ -62,10 +62,10 @@ export default function RootLayout({
           <MdOutlineWhatsapp className="w-12 h-12 text-green-500 bg-white rounded-full" />
         </a>
         {/* </Providers> */}
-        <script
+        {/* <script
           defer
           src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-59023/init.js"
-        ></script>
+        ></script> */}
       </body>
     </html>
   );
