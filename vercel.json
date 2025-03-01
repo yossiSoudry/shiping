@@ -1,0 +1,13 @@
+{
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          {
+            "key": "nginx_conf",
+            "value": "large_client_header_buffers 4 32k;"
+          }
+        ]
+      }
+    ]
+  }
