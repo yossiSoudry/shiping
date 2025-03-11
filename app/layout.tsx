@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: "/symbol.png", type: "image/png" }],
   },
+  verification: {
+    google: "ba7b9d9d962238e6",
+  },
 };
 
 export default function RootLayout({
