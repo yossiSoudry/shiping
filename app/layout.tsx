@@ -5,6 +5,7 @@ import { MdOutlineWhatsapp } from "react-icons/md";
 import "./globals.css";
 import Image from "next/image";
 import Script from "next/script";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -61,6 +62,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-59023/init.js"
         />
+        <GoogleAnalytics gaId="G-7CYHESWPLC" />
       </body>
     </html>
   );
