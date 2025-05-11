@@ -12,7 +12,7 @@ import {
 
 const OurServicesStory = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="mt-20 bg-white">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100 py-16 sm:py-24">
         <div className="absolute inset-0 opacity-10">
@@ -73,7 +73,7 @@ const OurServicesStory = () => {
             לאיכות ושימוש בטכנולוגיות המתקדמות ביותר, אנחנו מבטיחים שהמשלוחים שלכם
             יגיעו ליעדם בזמן ובשלמות.
           </p>
-          <button className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+          <button className="bg-orange-400/90 hover:bg-orange-500 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
             בואו נתחיל
           </button>
         </div>
@@ -113,7 +113,7 @@ const OurServicesStory = () => {
             הצטרפו לאלפי לקוחות מרוצים שכבר נהנים משירות המשלוחים הטוב ביותר
           </p>
           <div className="flex justify-center gap-4">
-            <button className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+            <button className="bg-orange-400/90 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
               התחל עכשיו
             </button>
             <button className="bg-white border-2 border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">

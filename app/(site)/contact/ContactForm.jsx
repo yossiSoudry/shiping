@@ -46,7 +46,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="mt-20 bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
         <div className="absolute inset-0 bg-black/20"></div>

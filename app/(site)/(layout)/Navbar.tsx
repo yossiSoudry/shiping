@@ -1,5 +1,4 @@
 "use client";
-import Scrolled from "@/components/Scrolled";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -21,10 +20,26 @@ import {
 import NextImage from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const pathname = usePathname();
   const route = useRouter();
+  const [scrolled, setScrolled] = useState(false);
+
+  // Check initial scroll position and listen to scroll events
+  useEffect(() => {
+    const checkScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    
+    // Check on mount
+    checkScroll();
+    
+    // Listen to scroll events
+    window.addEventListener("scroll", checkScroll);
+    return () => window.removeEventListener("scroll", checkScroll);
+  }, []);
 
   const menuItems = [
     { title: "בית", href: "/", icon: <Home /> },
@@ -33,12 +48,21 @@ const Navbar = () => {
     { title: "מה חדש", href: "/blog", icon: <Layout /> },
     { title: "צור קשר", href: "/contact", icon: <Contact2 /> },
   ];
+
   return (
-    <Scrolled>
-      <nav
+    <nav
+      className={cn(
+        "fixed top-0 w-full z-40 transition-all duration-300",
+        scrolled
+          ? "bg-white/70 backdrop-blur-lg shadow-lg border-b border-gray-200"
+          : "bg-transparent"
+      )}
+    >
+      <div
         className="h-20 container flex justify-between gap-2 md:gap-4 items-center p-4"
         aria-label="Global"
       >
+        {/* Mobile Menu */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger>
@@ -84,6 +108,8 @@ const Navbar = () => {
             </SheetContent>
           </Sheet>
         </div>
+
+        {/* Tablet Buttons */}
         <div className="hidden md:max-lg:flex gap-4">
           <Link href="https://members.lionwheel.com/locate/locate_task?org=%D7%A9%D7%99%D7%A4%D7%99%D7%A0%D7%92%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%D7%99%D7%9D">
             <Button
@@ -106,6 +132,8 @@ const Navbar = () => {
             </Button>
           </Link>
         </div>
+
+        {/* Desktop Buttons */}
         <div className="hidden lg:flex gap-4">
           <Link href="https://members.lionwheel.com/locate/locate_task?org=%D7%A9%D7%99%D7%A4%D7%99%D7%A0%D7%92%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%D7%99%D7%9D">
             <Button
@@ -128,6 +156,8 @@ const Navbar = () => {
             </Button>
           </Link>
         </div>
+
+        {/* Navigation Links */}
         <div className="gap-4 hidden md:flex">
           {menuItems.map((item, id) => (
             <Link
@@ -135,16 +165,18 @@ const Navbar = () => {
               href={item.href}
               aria-current="page"
               className={cn(
-                "whitespace-nowrap text-blue-900/90 hover:opacity-70 active:text-orange-400 duration-300",
+                "whitespace-nowrap hover:opacity-70 active:text-orange-400 duration-300",
                 pathname == item.href
                   ? "text-orange-400 font-semibold"
-                  : "dark:text-white"
+                  : "text-blue-900/90"
               )}
             >
               {item.title}
             </Link>
           ))}
         </div>
+
+        {/* Logo */}
         <Link
           href="/"
           className="min-w-[150px] h-full pl-2 flex items-center justify-end"
@@ -156,10 +188,11 @@ const Navbar = () => {
             src="/assets/logos/logo.png"
             alt="Logo"
             priority
+            className="object-contain"
           />
         </Link>
-      </nav>
-    </Scrolled>
+      </div>
+    </nav>
   );
 };
 

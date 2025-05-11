@@ -2,27 +2,36 @@
 import { useCallback, useEffect, useState } from "react";
 
 function Scrolled({
-    children,
-  }: {
-    children: React.ReactNode;
-  }) {
+  children,
+  threshold = 10,
+}: {
+  children: React.ReactNode;
+  threshold?: number;
+}) {
   const [scrolled, setScrolled] = useState(false);
-  let threshold = 10;
-  const onScroll = useCallback(() => {
+
+  const checkScroll = useCallback(() => {
     setScrolled(window.scrollY > threshold);
   }, [threshold]);
 
   useEffect(() => {
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [onScroll]);
+    // Check initial scroll position on mount
+    checkScroll();
+    
+    // Add scroll event listener
+    window.addEventListener("scroll", checkScroll);
+    
+    // Cleanup
+    return () => window.removeEventListener("scroll", checkScroll);
+  }, [checkScroll]);
+
   return (
     <div
-      className={`fixed top-0 w-full ${
+      className={`fixed top-0 w-full z-40 transition-all duration-300 ${
         scrolled
-          ? "shadow-md dark:shadow-xl h-[88px] bg-violet-50/80 dark:bg-gray-900/90 backdrop-blur-sm delay-75 duration-75"
-          : ""
-      } z-30 transition-all duration-300`}
+          ? "bg-white/20 backdrop-blur-lg shadow-lg border-b border-gray-200"
+          : "bg-white/20 backdrop-blur-sm"
+      }`}
     >
       {children}
     </div>

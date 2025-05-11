@@ -1,47 +1,45 @@
-'use client'
+'use client';
+
 import { HoverEffect } from "@/components/ui/card-hover-effect";
-import { Container } from "lucide-react";
-import { FaShippingFast } from "react-icons/fa";
-import { GrTechnology } from "react-icons/gr";
-import { MdEco, MdFollowTheSigns } from "react-icons/md";
-import { RiServiceFill } from "react-icons/ri";
+import { Package, Headphones, Truck, Cpu, Link, MapPin } from "lucide-react";
 
 export function CardHoverEffect() {
   return (
-    <div className="max-w-5xl mx-auto px-8">
+    <div className="max-w-7xl mx-auto px-8">
       <HoverEffect items={projects} />
     </div>
   );
 }
+
 export const projects = [
   {
-    icon: <Container className="w-20 h-20" />,
-    description:
-      "בגלל השירות. אנחנו זמינים סביב השעון לכל פניה שלכם ושל הלקוחות שלכם",
+    icon: <Headphones size={40} strokeWidth={1.5} />,
+    title: "שירות 24/6",
+    description: "אנחנו זמינים סביב השעון לכל פניה שלכם ושל הלקוחות שלכם",
   },
   {
-    icon: <RiServiceFill className="w-20 h-20" />,
-    description:
-      "מענה אישי ואנושי ללקוחות שלכם",
+    icon: <Package size={40} strokeWidth={1.5} />,
+    title: "מענה אישי",
+    description: "טיפול מותאם אישית לכל לקוח עם מענה אנושי וחם",
   },
   {
-    icon: <FaShippingFast className="w-20 h-20" />,
-    description:
-      "פריסה ארצית מקצה לקצה. נמסור את החבילות שלך בכל נקודה בארץ",
+    icon: <Truck size={40} strokeWidth={1.5} />,
+    title: "פריסה ארצית",
+    description: "משלוחים לכל נקודה בארץ, מקריית שמונה ועד אילת",
   },
   {
-    icon: <GrTechnology className="w-20 h-20" />,
-    description:
-      "טכנולוגיה מתקדמת להזנת משלוחים ולמעקב אחריהם.",
+    icon: <Cpu size={40} strokeWidth={1.5} />,
+    title: "טכנולוגיה מתקדמת",
+    description: "מערכת חכמה להזנת משלוחים ומעקב בזמן אמת",
   },
   {
-    icon: <MdEco className="w-20 h-20" />,
-    description:
-      "התממשקות עם כלל אתרי האיקומרס.",
+    icon: <Link size={40} strokeWidth={1.5} />,
+    title: "אינטגרציה מלאה",
+    description: "התממשקות עם כל פלטפורמות האיקומרס המובילות",
   },
   {
-    icon: <MdFollowTheSigns className="w-20 h-20" />,
-    description:
-      "מעקב אחרי המשלוחים בזמן אמת. תמיכה במערכות ניהול מלאי ומערכות ניהול חבילות.",
+    icon: <MapPin size={40} strokeWidth={1.5} />,
+    title: "מעקב חי",
+    description: "מעקב בזמן אמת אחר כל משלוח עם עדכונים שוטפים",
   },
 ];
