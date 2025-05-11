@@ -307,7 +307,7 @@ export const articles: Article[] = [
       
       <p>מעוניינים לשמוע עוד על פתרונות משלוחים מקצה לקצה המותאמים לצרכים הייחודיים של העסק שלכם? צרו קשר עוד היום עם מומחי הלוגיסטיקה שלנו.</p>
     `,
-    image: "/assets/blog/end-to-end-shipping.jpg",
+    image: "/assets/blog/end-to-end-shipping.png",
     author: "צוות שיפינג משלוחים",
     date: "2024-05-20",
     category: "logistics",
