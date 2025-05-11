@@ -57,7 +57,7 @@ export const StickyScroll = ({
         background: backgrounds[activeCard % backgrounds.length],
         opacity: "70%",
       }}
-      className="h-[30rem] max-w-[1400px] rounded-3xl lg:rounded-full lg:px-40 overflow-y-auto scrollbar-hide flex justify-center relative gap-16"
+      className="w-full h-[500px] overflow-y-auto scrollbar-hide flex justify-center relative gap-16"
       ref={ref}
     >
       <div className="div relative flex items-start px-4">
