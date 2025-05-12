@@ -9,30 +9,32 @@ export default function HeroStatistics() {
         <h2 className="text-4xl font-bold text-white text-center mb-12">
           שיפינג במספרים
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center">
             <CountUp
-              end={100}
+              end={1000}
+              start={1}
               duration={2.5}
               suffix="+"
               className="text-5xl font-bold text-orange-400"
             />
-            <div className="text-xl text-white mt-2">רכבי משלוח</div>
+            <div className="text-xl text-white mt-2">בתי עסק מרוצים</div>
           </div>
           <div className="text-center">
             <CountUp
-              end={10000}
+              end={1200}
+              start={1}
               duration={2.5}
               suffix="+"
               className="text-5xl font-bold text-orange-400"
             />
-            <div className="text-xl text-white mt-2">לקוחות מרוצים</div>
+            <div className="text-xl text-white mt-2">מדרגים אותנו 5 כוכבים בגוגל</div>
           </div>
           <div className="text-center">
             <div className="text-5xl font-bold text-orange-400">24/6</div>
             <div className="text-xl text-white mt-2">שירות זמין</div>
           </div>
-          <div className="text-center">
+          {/* <div className="text-center">
             <CountUp
               end={98}
               duration={2.5}
@@ -40,7 +42,7 @@ export default function HeroStatistics() {
               className="text-5xl font-bold text-orange-400"
             />
             <div className="text-xl text-white mt-2">דיוק במשלוחים</div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -77,7 +77,7 @@ export default function Home() {
       </div>
 
       {/* CTA Section */}
-      <div className="py-20 bg-gradient-to-r from-orange-400 to-orange-500 text-white text-center">
+      <div className="py-20 bg-gradient-to-r px-4 from-orange-400 to-orange-500 text-white text-center">
         <h2 className="text-4xl font-bold mb-6">מוכנים להתחיל?</h2>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           הצטרפו לאלפי לקוחות מרוצים שכבר נהנים משירות המשלוחים הטוב ביותר

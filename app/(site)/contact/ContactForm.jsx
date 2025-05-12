@@ -136,7 +136,7 @@ const ContactForm = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-blue-900 to-blue-800 text-white font-bold py-4 px-6 rounded-lg hover:from-blue-800 hover:to-blue-700 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-br from-blue-900 to-blue-800 text-white py-4 px-6 rounded-lg hover:from-blue-800 hover:to-blue-700 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed font-normal text-xl"
                 >
                   {loading ? "שולח..." : "שלח עכשיו"}
                 </button>
@@ -154,7 +154,7 @@ const ContactForm = () => {
           </div>
 
           {/* Trust Badges */}
-          <div className="mt-12 text-center">
+          <div className="mt-10 text-center">
             <div className="flex flex-wrap justify-center gap-6">
               {trustBadges.map((badge, index) => (
                 <div key={index} className="flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-md">
@@ -168,7 +168,7 @@ const ContactForm = () => {
       </div>
 
       {/* Final CTA Section */}
-      <div className="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+      <div className="py-16 bg-gradient-to-r from-orange-400/90 to-orange-500/90 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             עדיין מתלבטים?
@@ -204,13 +204,13 @@ const benefits = [
   },
   {
     icon: FaClock,
-    title: "זמינות 24/7",
+    title: "זמינות 24/6",
     description: "שירות זמין מסביב לשעון כל ימות השנה"
   },
   {
     icon: FaShieldAlt,
     title: "אמינות מוכחת",
-    description: "98% מהמשלוחים מגיעים בזמן ובשלמות"
+    description: "99.8% מהמשלוחים מגיעים בזמן ובשלמות"
   }
 ];
 

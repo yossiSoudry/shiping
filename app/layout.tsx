@@ -63,8 +63,9 @@ export default function RootLayout({
         <Script
           defer
           strategy="afterInteractive"
-          src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-59023/init.js"
+          src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-70823/init.js"
         />
+        {/* <script src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-70823/init.js"></script> */}
         <GoogleAnalytics gaId="G-7CYHESWPLC" />
       </body>
     </html>

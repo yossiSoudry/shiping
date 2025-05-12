@@ -80,7 +80,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+    <footer className="bg-gradient-to-br from-blue-900/80 to-blue-800/80 text-white z-50">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -99,6 +99,23 @@ const Footer = () => {
               שיפינג משלוחים - החברה המובילה בישראל למשלוחים מהירים ואמינים. אנו
               מספקים פתרונות לוגיסטיים מתקדמים לעסקים ופרטיים מאז 2016.
             </p>
+            <div className="w-fit">
+              <h4 className="text-sm text-center font-semibold mb-3">עקבו אחרינו</h4>
+              <div className="flex gap-3">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="w-10 h-10 rounded-full bg-blue-800 hover:bg-orange-400 flex items-center justify-center transition-colors"
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -162,7 +179,7 @@ const Footer = () => {
             </form>
 
             {/* Social Links */}
-            <div className="pt-4">
+            {/* <div className="pt-4">
               <h4 className="text-sm font-semibold mb-3">עקבו אחרינו</h4>
               <div className="flex gap-3">
                 {socialLinks.map((social, index) => (
@@ -178,7 +195,7 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

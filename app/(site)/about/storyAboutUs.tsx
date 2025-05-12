@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
+import CountUp from "react-countup";
 
 const content = [
   {
@@ -122,8 +123,8 @@ const StoryAboutUs = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - שקוף כדי לראות את הרקע */}
-      <div className="py-16 px-4 text-center bg-blue-900/30">
-        <h1 className="text-5xl font-bold text-white mb-6 drop-shadow-lg">
+      <div className="py-12 px-4 text-center bg-blue-900/30">
+        <h1 className="text-5xl mt-20 font-bold text-white mb-6 drop-shadow-lg">
           הסיפור שלנו: מסע של חזון, חדשנות והצלחה
         </h1>
         <p className="text-xl text-white max-w-3xl mx-auto drop-shadow-md">
@@ -140,34 +141,51 @@ const StoryAboutUs = () => {
       </div>
 
       {/* Stats Section - חצי שקוף */}
-      <div className="py-20 bg-blue-900/90 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-white text-center mb-12">
-            שיפינג במספרים
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-5xl font-bold text-orange-400 mb-4">100+</div>
-              <div className="text-xl text-white">רכבי משלוח</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-orange-400 mb-4">10,000+</div>
-              <div className="text-xl text-white">לקוחות מרוצים</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-orange-400 mb-4">24/6</div>
-              <div className="text-xl text-white">שירות זמין</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-orange-400 mb-4">98%</div>
-              <div className="text-xl text-white">דיוק במשלוחים</div>
-            </div>
+      <div className="py-20 bg-blue-900/80 backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-4xl font-bold text-white text-center mb-12">
+          שיפינג במספרים
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="text-center">
+            <CountUp
+              end={1000}
+              start={1}
+              duration={2.5}
+              suffix="+"
+              className="text-5xl font-bold text-orange-400"
+            />
+            <div className="text-xl text-white mt-2">בתי עסק מרוצים</div>
           </div>
+          <div className="text-center">
+            <CountUp
+              end={1200}
+              start={1}
+              duration={2.5}
+              suffix="+"
+              className="text-5xl font-bold text-orange-400"
+            />
+            <div className="text-xl text-white mt-2">מדרגים אותנו 5 כוכבים בגוגל</div>
+          </div>
+          <div className="text-center">
+            <div className="text-5xl font-bold text-orange-400">24/6</div>
+            <div className="text-xl text-white mt-2">שירות זמין</div>
+          </div>
+          {/* <div className="text-center">
+            <CountUp
+              end={98}
+              duration={2.5}
+              suffix="%"
+              className="text-5xl font-bold text-orange-400"
+            />
+            <div className="text-xl text-white mt-2">דיוק במשלוחים</div>
+          </div> */}
         </div>
+      </div>
       </div>
 
       {/* Vision Section - חצי שקוף */}
-      <div className="py-20 px-4 bg-white/90 backdrop-blur-sm">
+      <div className="py-20 px-4 bg-white/80 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-blue-900 mb-8">
             החזון שלנו לעתיד
@@ -200,7 +218,7 @@ const StoryAboutUs = () => {
       </div>
 
       {/* CTA Section - חצי שקוף */}
-      <div className="py-20 bg-orange-400/90 backdrop-blur-sm text-white text-center">
+      <div className="py-20 bg-gradient-to-br from-orange-500/80 to-orange-400/80 backdrop-blur-sm text-white text-center">
         <h2 className="text-4xl font-bold mb-8 drop-shadow-lg">
           בואו להיות חלק מהסיפור שלנו
         </h2>
