@@ -207,7 +207,7 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-12 bg-gray-100">
+      {/* <section className="py-12 bg-gray-100">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4">אל תפספסו מאמרים חדשים</h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
@@ -228,7 +228,7 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
             </button>
           </form>
         </div>
-      </section>
+      </section> */}
     </article>
   );
 };

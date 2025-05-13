@@ -26,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he" dir="rtl">
-      <body className={cn(inter.className)}>
+    <html lang="he" dir="rtl" suppressHydrationWarning={true}>
+      <body className={cn(inter.className)} suppressHydrationWarning={true}>
         <Script id="fb-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)

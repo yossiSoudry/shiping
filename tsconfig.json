@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "target": "es2015",  // הוספה זו
+    "downlevelIteration": true,  // הוספה זו (אופציונלי)
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,

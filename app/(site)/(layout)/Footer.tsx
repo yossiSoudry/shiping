@@ -95,27 +95,10 @@ const Footer = () => {
                 className="brightness-0 invert"
               />
             </Link>
-            <p className="text-blue-100 text-sm leading-relaxed">
+            <p className="text-blue-100 max-w-64 text-sm leading-relaxed">
               שיפינג משלוחים - החברה המובילה בישראל למשלוחים מהירים ואמינים. אנו
               מספקים פתרונות לוגיסטיים מתקדמים לעסקים ופרטיים מאז 2016.
             </p>
-            <div className="w-fit">
-              <h4 className="text-sm text-center font-semibold mb-3">עקבו אחרינו</h4>
-              <div className="flex gap-3">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="w-10 h-10 rounded-full bg-blue-800 hover:bg-orange-400 flex items-center justify-center transition-colors"
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -156,8 +139,28 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter & Social */}
-          <div className="space-y-4">
+          {/* Social */}
+          <div className="w-fit">
+          <h3 className="text-lg font-bold text-orange-400">
+              עקבו אחרינו
+            </h3>
+              {/* <h4 className="text-sm text-center font-semibold mb-3"></h4> */}
+              <div className="flex gap-3 mt-4">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="w-10 h-10 rounded-full bg-orange-400/90 hover:bg-blue-800/90 flex items-center justify-center transition-colors"
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+          {/* <div className="space-y-4">
             <h3 className="text-lg font-bold text-orange-400">
               הישארו מעודכנים
             </h3>
@@ -177,26 +180,7 @@ const Footer = () => {
                 הרשמה
               </button>
             </form>
-
-            {/* Social Links */}
-            {/* <div className="pt-4">
-              <h4 className="text-sm font-semibold mb-3">עקבו אחרינו</h4>
-              <div className="flex gap-3">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="w-10 h-10 rounded-full bg-blue-800 hover:bg-orange-400 flex items-center justify-center transition-colors"
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
-            </div> */}
-          </div>
+          </div> */}
         </div>
       </div>
 
