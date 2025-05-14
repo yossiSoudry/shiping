@@ -314,3 +314,166 @@ body.trigger-color-blue #enable-toolbar #enable-toolbar-trigger .keyboard-shorcu
   transform: translateX(-100%);
   animation: shine 3s infinite;
 }
+
+/* ======= רקע כביש מאויר - התחלה ======= */
+.illustrated-road-background {
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.road {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  top: 75%;
+  transform: translateY(-50%);
+  background-color: #f8f8f8;
+  border-top: 2px solid rgba(30, 90, 150, 0.3);
+  border-bottom: 2px solid rgba(30, 90, 150, 0.3);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* גישה חדשה לקווי הכביש */
+.road-lines {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: linear-gradient(to right, 
+    rgba(245, 140, 60, 0.5) 60px, 
+    transparent 60px, 
+    transparent 100px);
+  background-size: 100px 100%;
+  animation: moveLines 2s linear infinite;
+}
+
+@keyframes moveLines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100px 0;
+  }
+}
+
+/* אפקטים צבעוניים - דומיננטיות מוגברת */
+.color-effects {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.color-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.15;
+  animation: float 12s ease-in-out infinite;
+}
+
+/* כתמי צבע דומיננטיים יותר */
+.color-blob-1 {
+  width: 500px;
+  height: 500px;
+  background-color: #1E5A96; /* כחול */
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.color-blob-2 {
+  width: 450px;
+  height: 450px;
+  background-color: #F58C3C; /* כתום */
+  top: 60%;
+  left: 60%;
+  animation-delay: 3s;
+  animation-duration: 13s;
+}
+
+.color-blob-3 {
+  width: 350px;
+  height: 350px;
+  background-color: #1E5A96; /* כחול */
+  top: 25%;
+  left: 70%;
+  animation-delay: 5s;
+  animation-duration: 14s;
+}
+
+.color-blob-4 {
+  width: 330px;
+  height: 330px;
+  background-color: #F58C3C; /* כתום */
+  top: 70%;
+  left: 20%;
+  animation-delay: 2s;
+  animation-duration: 15s;
+}
+
+/* כתמי צבע נוספים */
+.color-blob-5 {
+  width: 300px;
+  height: 300px;
+  background-color: #1E5A96; /* כחול */
+  top: 40%;
+  left: 40%;
+  animation-delay: 1s;
+  animation-duration: 16s;
+}
+
+.color-blob-6 {
+  width: 270px;
+  height: 270px;
+  background-color: #F58C3C; /* כתום */
+  top: 10%;
+  left: 40%;
+  animation-delay: 6s;
+  animation-duration: 17s;
+}
+
+.color-blob-7 {
+  width: 370px;
+  height: 370px;
+  background-color: #1E5A96; /* כחול */
+  top: 55%;
+  left: 5%;
+  animation-delay: 4s;
+  animation-duration: 18s;
+}
+
+.color-blob-8 {
+  width: 250px;
+  height: 250px;
+  background-color: #F58C3C; /* כתום */
+  top: 30%;
+  left: 85%;
+  animation-delay: 7s;
+  animation-duration: 19s;
+}
+
+/* אנימציה דומיננטית יותר */
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(50px, 25px) scale(1.15);
+  }
+  50% {
+    transform: translate(0, 50px) scale(0.9);
+  }
+  75% {
+    transform: translate(-40px, 15px) scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+/* ======= רקע כביש מאויר - סיום ======= */

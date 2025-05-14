@@ -2,22 +2,17 @@ import Link from "next/link";
 import { CardHoverEffect } from "./HeroCardHoverEffect";
 import { HeroImages } from "./HeroImages";
 import HeroStatistics from "./HeroStatistics";
-import HeroTestimonials from "./HeroTestimonials";
-import ModernTimelineProcess from "./ModernTimelineProcess";
 import TestimonialsSection from "./HeroTestimonials";
+import ModernTimelineProcess from "./ModernTimelineProcess";
+import { RoadBackground } from "@/components/ui/RoadBackground";
 
 export default function Home() {
   return (
     <div className="">
       {/* Hero Section */}
-      <div className="h-screen w-full dark:bg-black bg-blue-800/5 dark:bg-grid-white/[0.2] bg-grid-orange-400/[0.2] relative overflow-hidden">
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -left-40 w-80 h-80 bg-orange-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-blue-900/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+      <div className="h-screen w-full illustrated-road-background relative overflow-hidden">
+        {/* רקע הכביש המאויר */}
+        <RoadBackground />
 
         <div className="flex flex-col gap-10 h-fit relative z-10">
           <div className="text-center pt-16">
