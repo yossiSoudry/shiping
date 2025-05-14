@@ -4,6 +4,7 @@ import { HeroImages } from "./HeroImages";
 import HeroStatistics from "./HeroStatistics";
 import HeroTestimonials from "./HeroTestimonials";
 import ModernTimelineProcess from "./ModernTimelineProcess";
+import TestimonialsSection from "./HeroTestimonials";
 
 export default function Home() {
   return (
@@ -69,11 +70,8 @@ export default function Home() {
       <ModernTimelineProcess />
 
       {/* Testimonials */}
-      <div className="py-20 bg-white">
-        <h2 className="text-4xl text-center text-orange-500 mb-12">
-          מה הלקוחות שלנו אומרים?
-        </h2>
-        <HeroTestimonials />
+      <div className="py-10 bg-white">
+        <TestimonialsSection />
       </div>
 
       {/* CTA Section */}
