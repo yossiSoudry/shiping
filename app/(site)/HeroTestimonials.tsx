@@ -111,17 +111,17 @@ const TestimonialsSection = () => {
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-orange-500/90 to-amber-500 bg-clip-text text-transparent">
               מה הלקוחות שלנו אומרים?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              אלפי לקוחות מרוצים נהנים משירותי המשלוחים שלנו
+              אלפי לקוחות מרוצים, נהנים משירותי המשלוחים שלנו
             </p>
           </motion.div>
         </div>
 
         {/* Animated Stars */}
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-6">
           <div className="relative h-16 w-full flex justify-center">
             {[...Array(5)].map((_, i) => {
               // מרכוז הכוכבים - חישוב מיקום יחסי למרכז
@@ -134,7 +134,7 @@ const TestimonialsSection = () => {
                     isVisible
                       ? {
                           opacity: 1,
-                          scale: 1,
+                          scale: 2,
                           rotate: 0,
                         }
                       : {}
@@ -154,7 +154,7 @@ const TestimonialsSection = () => {
                       : "",
                   }}
                 >
-                  <StarIcon className="w-10 h-10 text-amber-400 fill-amber-400 filter drop-shadow-lg" />
+                  <StarIcon className="size-8 text-amber-400 fill-amber-400 filter drop-shadow-lg" />
                 </motion.div>
               );
             })}
@@ -251,10 +251,10 @@ const TestimonialCarousel = ({ isVisible }: { isVisible: boolean }) => {
       className="bg-white rounded-xl p-6 shadow-xl border border-gray-100"
     >
       <div className="absolute top-4 left-4">
-        <StarIcon className="h-8 w-8 text-orange-500 opacity-20" />
+        <StarIcon className="h-8 w-8 text-orange-500/90 opacity-20" />
       </div>
 
-      <h3 className="text-xl font-bold text-blue-900 mb-4">ביקורות נבחרות</h3>
+      <h3 className="text-xl font-bold text-blue-900/90 mb-4">ביקורות נבחרות</h3>
 
       <div className="relative h-[200px] overflow-hidden">
         {testimonials.map((testimonial, index) => (

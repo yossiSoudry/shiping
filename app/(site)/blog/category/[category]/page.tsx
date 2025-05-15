@@ -117,7 +117,7 @@ const CategoryPage = ({ params }: { params: { category: string } }) => {
         </div>
 
         {/* Category Header */}
-        <div className="bg-gradient-to-br from-blue-900 to-blue-800 text-white rounded-xl p-8 mb-10">
+        <div className="bg-gradient-to-br from-blue-900/90 to-blue-700/90 text-white rounded-xl p-8 mb-10">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             {categoryName}
           </h1>
@@ -139,7 +139,7 @@ const CategoryPage = ({ params }: { params: { category: string } }) => {
 
         {/* Bottom SEO Text */}
         <div className="mt-16 bg-white rounded-xl p-8 shadow-md">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4 border-r-4 border-orange-500 pr-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4 border-r-4 border-orange-500/90 pr-4">
             {categoryName} - מידע מקצועי ומעמיק
           </h2>
 

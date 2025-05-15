@@ -39,7 +39,7 @@ const BlogPage = () => {
   return (
     <div className="mt-20 bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+      <section className="relative py-20 bg-gradient-to-br from-blue-900/90 to-blue-700/90 text-white">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">
@@ -67,7 +67,7 @@ const BlogPage = () => {
       {/* Featured Articles */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-10 border-r-4 border-orange-500 pr-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-10 border-r-4 border-orange-500/90 pr-4">
             מאמרים מובילים
           </h2>
           
@@ -89,12 +89,12 @@ const BlogPage = () => {
           <section key={cat.category} className="py-12 bg-gray-50">
             <div className="container mx-auto px-4">
               <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 border-r-4 border-orange-500 pr-4">
+                <h2 className="text-2xl font-bold text-gray-900 border-r-4 border-orange-500/90 pr-4">
                   {cat.categoryName}
                 </h2>
                 <Link 
                   href={`/blog/category/${cat.category}`}
-                  className="text-blue-900 hover:text-orange-500 font-medium transition-colors"
+                  className="text-blue-900/90 hover:text-orange-500/90 font-medium transition-colors"
                 >
                   לכל המאמרים בקטגוריה
                 </Link>
@@ -113,7 +113,7 @@ const BlogPage = () => {
       {/* Recent Articles Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-10 border-r-4 border-orange-500 pr-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-10 border-r-4 border-orange-500/90 pr-4">
             מאמרים אחרונים
           </h2>
           
@@ -128,7 +128,7 @@ const BlogPage = () => {
             <div className="mt-12 flex justify-center">
               <Link 
                 href="/blog/page/2"
-                className="bg-blue-900 hover:bg-blue-800 text-white font-bold px-6 py-3 rounded-lg transition-colors"
+                className="bg-blue-800/90 hover:bg-blue-700/90 text-white font-bold px-6 py-3 rounded-lg transition-colors"
               >
                 למאמרים נוספים
               </Link>
@@ -138,7 +138,7 @@ const BlogPage = () => {
       </section>
 
       {/* Newsletter Section */}
-      {/* <section className="py-16 bg-gradient-to-r from-orange-400 to-orange-500">
+      {/* <section className="py-16 bg-gradient-to-r from-orange-300/90 to-orange-500">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             הירשמו לניוזלטר שלנו
@@ -156,7 +156,7 @@ const BlogPage = () => {
             />
             <button
               type="submit"
-              className="bg-blue-900 hover:bg-blue-800 text-white font-bold px-6 py-3 rounded-lg transition-colors"
+              className="bg-blue-900/90 hover:bg-blue-800/90text-white font-bold px-6 py-3 rounded-lg transition-colors"
             >
               הרשמה
             </button>

@@ -141,7 +141,7 @@ const StoryAboutUs = () => {
       </div>
 
       {/* Stats Section - חצי שקוף */}
-      <div className="py-20 bg-blue-900/80 backdrop-blur-sm">
+      <div className="py-20 bg-blue-900/90  backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-white text-center mb-12">
           שיפינג במספרים
@@ -185,9 +185,9 @@ const StoryAboutUs = () => {
       </div>
 
       {/* Vision Section - חצי שקוף */}
-      <div className="py-20 px-4 bg-white/80 backdrop-blur-sm">
+      <div className="py-20 px-4 bg-white/90 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-blue-900 mb-8">
+          <h2 className="text-4xl font-bold text-blue-900/90 mb-8">
             החזון שלנו לעתיד
           </h2>
           <p className="text-xl text-gray-700 mb-12">
@@ -195,20 +195,20 @@ const StoryAboutUs = () => {
             תוך שילוב טכנולוגיות מתקדמות, קיימות סביבתית ושירות לקוחות שאין שני לו.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold text-orange-500 mb-4">טכנולוגיה חכמה</h3>
+            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold text-orange-500/90 mb-4">טכנולוגיה חכמה</h3>
               <p className="text-gray-700">
                 השקעה מתמדת ב-AI ובאוטומציה למיטוב מסלולים וחיזוי ביקושים
               </p>
             </div>
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold text-orange-500 mb-4">קיימות ירוקה</h3>
+            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold text-orange-500/90 mb-4">קיימות ירוקה</h3>
               <p className="text-gray-700">
                 מעבר לצי רכבים חשמלי והפחתת טביעת הרגל הפחמנית שלנו
               </p>
             </div>
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold text-orange-500 mb-4">שירות מנצח</h3>
+            <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold text-orange-500/90 mb-4">שירות מנצח</h3>
               <p className="text-gray-700">
                 הרחבת שעות הפעילות ל-24/7 ושיפור מתמיד של חווית הלקוח
               </p>
@@ -218,7 +218,7 @@ const StoryAboutUs = () => {
       </div>
 
       {/* CTA Section - חצי שקוף */}
-      <div className="py-20 bg-gradient-to-br from-orange-500/80 to-orange-400/80 backdrop-blur-sm text-white text-center">
+      <div className="py-20 bg-gradient-to-br from-orange-500/90  to-orange-300/90 backdrop-blur-sm text-white text-center">
         <h2 className="text-4xl font-bold mb-8 drop-shadow-lg">
           בואו להיות חלק מהסיפור שלנו
         </h2>
@@ -227,10 +227,10 @@ const StoryAboutUs = () => {
           או אדם מוכשר שרוצה להצטרף לצוות שלנו - מקומכם איתנו.
         </p>
         <div className="flex flex-wrap justify-center gap-4 mb-8">
-          <button className="bg-white text-orange-500 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
+          <button className="bg-white text-orange-500/90 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
             הצטרפו כלקוחות
           </button>
-          <button className="bg-blue-900 text-white hover:bg-blue-800 font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
+          <button className="bg-blue-900/90 text-white hover:bg-blue-800/90font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
             קריירה בשיפינג
           </button>
         </div>

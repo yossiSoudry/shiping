@@ -16,7 +16,7 @@ const processSteps = [
     title: "איסוף",
     description: "נהג מגיע לאסוף את החבילה",
     icon: Truck,
-    color: "from-orange-500 to-orange-600",
+    color: "from-orange-500/90 to-orange-600",
     bgColor: "bg-orange-100",
     textColor: "text-orange-600"
   },
@@ -40,7 +40,7 @@ const processSteps = [
 
 export default function TimelineProcessV3() {
   return (
-    <div className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white overflow-hidden">
+    <div className="py-20 bg-gradient-to-br from-blue-900/90 via-blue-700/90 to-blue-900/90 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
@@ -70,7 +70,7 @@ export default function TimelineProcessV3() {
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ duration: 2, ease: "easeInOut" }}
-              className="absolute inset-0 bg-gradient-to-l from-green-400 via-orange-400 to-blue-400 origin-right h-full"
+              className="absolute inset-0 bg-gradient-to-l from-green-400 via-orange-400/90 to-blue-400 origin-right h-full"
             />
           </div>
 
@@ -198,7 +198,7 @@ export default function TimelineProcessV3() {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-orange-400/90 to-orange-500/90 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg"
+            className="bg-gradient-to-r from-orange-300/90 to-orange-500/90  hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg"
           >
             התחל עכשיו
           </motion.button>

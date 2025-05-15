@@ -75,7 +75,7 @@ const Navbar = () => {
             <Link href="https://members.lionwheel.com/locate/locate_task?org=%D7%A9%D7%99%D7%A4%D7%99%D7%A0%D7%92%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%D7%99%D7%9D">
               <Button
                 variant="outline"
-                className="border-orange-500 text-orange-500 hover:bg-orange-50 gap-2"
+                className="border-orange-500/90 text-orange-500/90 hover:bg-orange-50 gap-2"
               >
                 <ScanBarcode className="w-4 h-4" />
                 בירור משלוח
@@ -83,7 +83,7 @@ const Navbar = () => {
             </Link>
 
             <Link href="https://members.lionwheel.com/?locale=he">
-              <Button className="bg-gradient-to-br from-blue-900 to-blue-800 hover:bg-blue-800 text-white gap-2">
+              <Button className="bg-gradient-to-br from-blue-900/90 to-blue-700/90 hover:bg-blue-800/90 text-white gap-2">
                 <UsersRound className="w-4 h-4" />
                 כניסת משתמשים
               </Button>
@@ -153,7 +153,7 @@ const Navbar = () => {
                 <Button
                   size="icon"
                   variant="outline"
-                  className="border-orange-500 text-orange-500 hover:bg-orange-50"
+                  className="border-orange-500/90 text-orange-500/90 hover:bg-orange-50"
                 >
                   <ScanBarcode className="w-5 h-5" />
                 </Button>
@@ -161,7 +161,7 @@ const Navbar = () => {
               <Link href="https://members.lionwheel.com/?locale=he">
                 <Button
                   size="icon"
-                  className="bg-blue-900 hover:bg-blue-800 text-white"
+                  className="bg-blue-900/90 hover:bg-blue-800/90text-white"
                 >
                   <UsersRound className="w-5 h-5" />
                 </Button>
@@ -213,14 +213,14 @@ const Navbar = () => {
                     <Link href="https://members.lionwheel.com/locate/locate_task?org=%D7%A9%D7%99%D7%A4%D7%99%D7%A0%D7%92%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%D7%99%D7%9D">
                       <Button
                         variant="outline"
-                        className="w-full border-orange-500 text-orange-500 hover:bg-orange-50 gap-2"
+                        className="w-full border-orange-500/90 text-orange-500/90 hover:bg-orange-50 gap-2"
                       >
                         <ScanBarcode className="w-4 h-4" />
                         בירור משלוח
                       </Button>
                     </Link>
                     <Link href="https://members.lionwheel.com/?locale=he">
-                      <Button className="w-full bg-gradient-to-br from-blue-900 to-blue-800 hover:bg-blue-800 text-white gap-2 mt-4">
+                      <Button className="w-full bg-gradient-to-br from-blue-900/90 to-blue-700/90 hover:bg-blue-800/90 text-white gap-2 mt-4">
                         <UsersRound className="w-4 h-4" />
                         כניסת משתמשים
                       </Button>

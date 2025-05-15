@@ -48,7 +48,7 @@ const ContactForm = () => {
   return (
     <div className="mt-20 bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
+      <div className="relative overflow-hidden bg-gradient-to-br from-blue-900/90 to-blue-700/90 text-white py-20">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-orange-400/20 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"></div>
@@ -72,10 +72,10 @@ const ContactForm = () => {
                 key={index}
                 className="text-center p-6 rounded-xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300 border border-gray-100"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-300/90 to-orange-500/90 rounded-full mb-4">
                   <benefit.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-blue-900 mb-2">{benefit.title}</h3>
+                <h3 className="text-xl font-bold text-blue-900/90 mb-2">{benefit.title}</h3>
                 <p className="text-gray-600">{benefit.description}</p>
               </div>
             ))}
@@ -87,7 +87,7 @@ const ContactForm = () => {
       <div className="py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-4xl mx-auto px-4">
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-            <div className="bg-gradient-to-r from-orange-400 to-orange-500 p-8 text-white text-center">
+            <div className="bg-gradient-to-r from-orange-300/90 to-orange-500/90 p-8 text-white text-center">
               <h2 className="text-3xl font-bold mb-2">מלאו את הטופס עכשיו</h2>
               <p className="text-orange-100">וקבלו הצעת מחיר מותאמת אישית תוך 24 שעות</p>
             </div>
@@ -102,7 +102,7 @@ const ContactForm = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="שם מלא"
-                    className="w-full pl-12 p-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-400 transition-colors text-right"
+                    className="w-full pl-12 p-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-400/90 transition-colors text-right"
                     required
                   />
                 </div>
@@ -115,7 +115,7 @@ const ContactForm = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="מספר טלפון"
-                    className="w-full pl-12 p-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-400 transition-colors text-right"
+                    className="w-full pl-12 p-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-400/90 transition-colors text-right"
                     required
                   />
                 </div>
@@ -128,7 +128,7 @@ const ContactForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="כתובת אימייל"
-                    className="w-full pl-12 p-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-400 transition-colors text-right"
+                    className="w-full pl-12 p-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-400/90 transition-colors text-right"
                     required
                   />
                 </div>
@@ -136,7 +136,7 @@ const ContactForm = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-br from-blue-900 to-blue-800 text-white py-4 px-6 rounded-lg hover:from-blue-800 hover:to-blue-700 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed font-normal text-xl"
+                  className="w-full bg-gradient-to-br from-blue-900/90 to-blue-700/90 text-white py-4 px-6 rounded-lg hover:from-blue-800/90hover:to-blue-700 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed font-normal text-xl"
                 >
                   {loading ? "שולח..." : "שלח עכשיו"}
                 </button>
@@ -158,7 +158,7 @@ const ContactForm = () => {
             <div className="flex flex-wrap justify-center gap-6">
               {trustBadges.map((badge, index) => (
                 <div key={index} className="flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-md">
-                  <badge.icon className="text-orange-500 text-xl" />
+                  <badge.icon className="text-orange-500/90 text-xl" />
                   <span className="text-gray-700 font-medium">{badge.text}</span>
                 </div>
               ))}
@@ -168,7 +168,7 @@ const ContactForm = () => {
       </div>
 
       {/* Final CTA Section */}
-      <div className="py-16 bg-gradient-to-r from-orange-400/90 to-orange-500/90 text-white">
+      <div className="py-16 bg-gradient-to-r from-orange-300/90 to-orange-500/90  text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             עדיין מתלבטים?

@@ -54,7 +54,7 @@ const ShareSection = ({ title }: ShareSectionProps) => {
           href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(title)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+          className="w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800/90transition-colors"
         >
           {Linkedin && <Linkedin className="w-5 h-5" />}
         </a>

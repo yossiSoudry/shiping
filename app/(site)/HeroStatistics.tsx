@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 
 export default function HeroStatistics() {
   return (
-    <div className="py-20 bg-gradient-to-r from-blue-900 to-blue-800">
+    <div className="py-20 bg-gradient-to-r from-blue-900/90 to-blue-700">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-white text-center mb-12">
           שיפינג במספרים

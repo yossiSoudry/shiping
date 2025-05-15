@@ -15,14 +15,14 @@ export default function Home() {
         <RoadBackground />
 
         <div className="flex flex-col gap-10 h-fit relative z-10">
-          <div className="text-center pt-16">
-            <p className="text-5xl md:text-7xl font-bold relative bg-clip-text text-transparent bg-gradient-to-b from-blue-900 to-blue-400 py-8">
+          <div className="text-center pt-20">
+            <p className="text-5xl md:text-8xl font-bold relative bg-clip-text text-transparent bg-gradient-to-b from-blue-900/90 to-blue-400 py-8">
               המרחקים קטנים
             </p>
-            <p className="text-5xl md:text-7xl font-bold relative bg-clip-text text-transparent bg-gradient-to-b from-orange-300 to-orange-500">
+            <p className="text-5xl md:text-8xl font-bold relative bg-clip-text text-transparent bg-gradient-to-b from-orange-300 to-orange-500">
               כשאנחנו בדרך...
             </p>
-            <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto px-4">
+            <p className="text-3xl text-gray-600 mt-6 max-w-4xl mx-auto px-4">
               שירותי משלוחים מקצועיים ואמינים לכל רחבי הארץ. מאז 2016 אנחנו
               מספקים פתרונות לוגיסטיים מתקדמים לעסקים ופרטיים
             </p>
@@ -33,7 +33,7 @@ export default function Home() {
                 </button>
               </Link>
               <Link href="/about">
-                <button className="border-2 border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white font-bold py-3 px-8 rounded-full transition-colors">
+                <button className="border-2 border-blue-900/90 text-blue-900/90 hover:bg-blue-900/90 hover:text-white font-bold py-3 px-8 rounded-full transition-colors">
                   על החברה
                 </button>
               </Link>
@@ -48,7 +48,7 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <div className="py-16 bg-white">
-        <h2 className="text-4xl font-bold text-center text-blue-900 mb-6">
+        <h2 className="text-4xl font-bold text-center text-blue-900/90 mb-6">
           למה לבחור בשיפינג?
         </h2>
         <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto px-4">
@@ -70,7 +70,7 @@ export default function Home() {
       </div>
 
       {/* CTA Section */}
-      <div className="py-20 bg-gradient-to-r px-4 from-orange-400 to-orange-500 text-white text-center">
+      <div className="py-20 bg-gradient-to-r px-4 from-orange-300/90 to-orange-500/90  text-white text-center">
         <h2 className="text-4xl font-bold mb-6">מוכנים להתחיל?</h2>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           הצטרפו לאלפי לקוחות מרוצים שכבר נהנים משירות המשלוחים הטוב ביותר
@@ -78,12 +78,12 @@ export default function Home() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link href="/contact">
-            <button className="bg-white text-orange-500 hover:bg-gray-100 font-bold py-4 px-8 rounded-full transition-colors">
+            <button className="bg-white text-orange-500/90 hover:bg-gray-100 font-bold py-4 px-8 rounded-full transition-colors">
               קבל הצעת מחיר
             </button>
           </Link>
           <Link href="/services">
-            <button className="bg-blue-900 text-white hover:bg-blue-800 font-bold py-4 px-8 rounded-full transition-colors">
+            <button className="bg-blue-900/90 text-white hover:bg-blue-800/90font-bold py-4 px-8 rounded-full transition-colors">
               הכירו את השירותים שלנו
             </button>
           </Link>

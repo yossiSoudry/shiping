@@ -48,7 +48,7 @@ const ArticleCard = ({ article, featured = false, isRelated = false }: ArticleCa
             <div className="absolute top-4 right-4">
               <Link 
                 href={`/blog/category/${article.category}`}
-                className="bg-orange-500/90 hover:bg-orange-400/90 text-white text-sm font-medium py-1 px-3 rounded-full transition-colors"
+                className="bg-orange-500/90  hover:bg-orange-400/90 text-white text-sm font-medium py-1 px-3 rounded-full transition-colors"
               >
                 {article.categoryName}
               </Link>
@@ -63,7 +63,7 @@ const ArticleCard = ({ article, featured = false, isRelated = false }: ArticleCa
         {!featured && isMounted && (
           <Link
             href={`/blog/category/${article.category}`}
-            className="inline-block text-sm font-medium text-orange-500 hover:text-orange-600 mb-3"
+            className="inline-block text-sm font-medium text-orange-500/90 hover:text-orange-600 mb-3"
           >
             {article.categoryName}
           </Link>
@@ -103,7 +103,7 @@ const ArticleCard = ({ article, featured = false, isRelated = false }: ArticleCa
         {isMounted && (
           <Link
             href={`/blog/${article.slug}`}
-            className="inline-flex items-center gap-2 text-blue-900 font-medium hover:text-orange-500 transition-colors"
+            className="inline-flex items-center gap-2 text-blue-900/90 font-medium hover:text-orange-500/90 transition-colors"
           >
             קרא עוד
             <ArrowLeft className="w-4 h-4 transform transition-transform group-hover:-translate-x-1" />

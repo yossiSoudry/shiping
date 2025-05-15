@@ -74,12 +74,12 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
         
         <div className="absolute inset-0 flex items-end">
           <div className="container mx-auto px-4 pb-12">
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-white/80 mb-4">
+            <nav className="flex items-center gap-2 text-white/90 mb-4">
               <Link href="/" className="hover:text-white">בית</Link>
               <span>/</span>
               <Link href="/blog" className="hover:text-white">מה חדש</Link>
@@ -149,7 +149,7 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
                   <Link
                     href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(article.title)}`}
                     target="_blank"
-                    className="w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+                    className="w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800/90transition-colors"
                   >
                     <Linkedin className="w-5 h-5" />
                   </Link>
@@ -164,14 +164,14 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
               </div>
 
               {/* CTA Section */}
-              <div className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-xl p-6 text-white">
+              <div className="bg-gradient-to-br from-blue-900/90 to-blue-700/90 rounded-xl p-6 text-white">
                 <h3 className="text-xl font-bold mb-3">זקוקים לשירותי משלוחים?</h3>
                 <p className="mb-4 text-blue-100">
                   צרו קשר עוד היום וקבלו הצעת מחיר מותאמת אישית
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg transition-colors"
+                  className="inline-flex items-center gap-2 bg-orange-500/90 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg transition-colors"
                 >
                   צור קשר
                   <ArrowRight className="w-4 h-4" />
@@ -191,7 +191,7 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
                         href={`/blog/${relatedArticle.slug}`}
                         className="block group"
                       >
-                        <h4 className="font-medium text-gray-900 group-hover:text-orange-500 transition-colors">
+                        <h4 className="font-medium text-gray-900 group-hover:text-orange-500/90 transition-colors">
                           {relatedArticle.title}
                         </h4>
                         <p className="text-sm text-gray-500 mt-1">
@@ -222,7 +222,7 @@ const ArticlePage = ({ params }: ArticlePageProps) => {
             />
             <button
               type="submit"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-colors"
+              className="bg-orange-500/90 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-colors"
             >
               הרשמה
             </button>

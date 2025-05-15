@@ -80,7 +80,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-blue-800/90 to-blue-800/80 text-white z-40">
+    <footer className="bg-gradient-to-br from-blue-800/90 to-blue-700/90 text-white z-40">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -111,7 +111,7 @@ const Footer = () => {
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="flex items-center gap-2 text-blue-100 hover:text-orange-400 transition-colors"
+                    className="flex items-center gap-2 text-blue-100 hover:text-orange-400/90 transition-colors"
                   >
                     {link.icon}
                     {link.title}
@@ -129,7 +129,7 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href={info.href}
-                    className="flex items-center gap-3 text-blue-100 hover:text-orange-400 transition-colors"
+                    className="flex items-center gap-3 text-blue-100 hover:text-orange-400/90 transition-colors"
                   >
                     <span className="text-orange-400">{info.icon}</span>
                     {info.text}
@@ -171,11 +171,11 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="כתובת אימייל"
-                className="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-700 text-white placeholder-blue-300 focus:outline-none focus:border-orange-400 transition-colors"
+                className="w-full px-4 py-2 rounded-lg bg-blue-800/90border border-blue-700 text-white placeholder-blue-300 focus:outline-none focus:border-orange-400/90 transition-colors"
               />
               <button
                 type="submit"
-                className="w-full bg-orange-400 hover:bg-orange-500 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+                className="w-full bg-orange-400/90 hover:bg-orange-500/90 text-white font-medium py-2 px-4 rounded-lg transition-colors"
               >
                 הרשמה
               </button>
@@ -192,19 +192,19 @@ const Footer = () => {
             <div className="flex gap-6">
               <Link
                 href="/privacy"
-                className="hover:text-orange-400 transition-colors"
+                className="hover:text-orange-400/90 transition-colors"
               >
                 מדיניות פרטיות
               </Link>
               <Link
                 href="/terms"
-                className="hover:text-orange-400 transition-colors"
+                className="hover:text-orange-400/90 transition-colors"
               >
                 תנאי שימוש
               </Link>
               <Link
                 href="/accessibility"
-                className="hover:text-orange-400 transition-colors"
+                className="hover:text-orange-400/90 transition-colors"
               >
                 הצהרת נגישות
               </Link>

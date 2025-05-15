@@ -29,42 +29,42 @@ const SitemapPage = () => {
         <h1 className="text-3xl font-bold text-gray-900 mb-8">מפת אתר</h1>
         
         <div className="bg-white rounded-xl p-8 shadow-md">
-          <h2 className="text-2xl font-bold text-blue-900 mb-6">דפים ראשיים</h2>
+          <h2 className="text-2xl font-bold text-blue-900/90 mb-6">דפים ראשיים</h2>
           <ul className="space-y-2 mb-10">
             <li>
-              <Link href="/" className="text-blue-900 hover:text-orange-500">
+              <Link href="/" className="text-blue-900/90 hover:text-orange-500">
                 דף הבית
               </Link>
             </li>
             <li>
-              <Link href="/about" className="text-blue-900 hover:text-orange-500">
+              <Link href="/about" className="text-blue-900/90 hover:text-orange-500">
                 אודות
               </Link>
             </li>
             <li>
-              <Link href="/services" className="text-blue-900 hover:text-orange-500">
+              <Link href="/services" className="text-blue-900/90 hover:text-orange-500">
                 שירותים
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="text-blue-900 hover:text-orange-500">
+              <Link href="/contact" className="text-blue-900/90 hover:text-orange-500">
                 צור קשר
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="text-blue-900 hover:text-orange-500">
+              <Link href="/blog" className="text-blue-900/90 hover:text-orange-500">
                 מאמרים ומידע מקצועי
               </Link>
             </li>
           </ul>
           
-          <h2 className="text-2xl font-bold text-blue-900 mb-6">קטגוריות מאמרים</h2>
+          <h2 className="text-2xl font-bold text-blue-900/90 mb-6">קטגוריות מאמרים</h2>
           <ul className="space-y-2 mb-10">
             {categories.map((cat) => (
               <li key={cat.category}>
                 <Link
                   href={`/blog/category/${cat.category}`}
-                  className="text-blue-900 hover:text-orange-500"
+                  className="text-blue-900/90 hover:text-orange-500"
                 >
                   {cat.categoryName}
                 </Link>
@@ -72,13 +72,13 @@ const SitemapPage = () => {
             ))}
           </ul>
           
-          <h2 className="text-2xl font-bold text-blue-900 mb-6">כל המאמרים</h2>
+          <h2 className="text-2xl font-bold text-blue-900/90 mb-6">כל המאמרים</h2>
           <ul className="space-y-2">
             {articles.map((article) => (
               <li key={article.id}>
                 <Link
                   href={`/blog/${article.slug}`}
-                  className="text-blue-900 hover:text-orange-500"
+                  className="text-blue-900/90 hover:text-orange-500"
                 >
                   {article.title}
                 </Link>

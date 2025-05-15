@@ -9,7 +9,7 @@ export const metadata = {
     return (
       <div className="mt-20 bg-gradient-to-b from-gray-50 to-white">
         {/* Header */}
-        <section className="relative py-16 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+        <section className="relative py-16 bg-gradient-to-br from-blue-900/90 to-blue-700/90text-white">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl font-bold text-center">מדיניות פרטיות</h1>
             <p className="mt-4 text-center text-blue-100 max-w-3xl mx-auto">

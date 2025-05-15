@@ -46,14 +46,14 @@ export const HoverEffect = ({
                   transition: { duration: 0.15, delay: 0.1 },
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl opacity-10 blur-xl" />
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl opacity-5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-300/90 to-orange-500/90 rounded-2xl opacity-10 blur-xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-300/90 to-orange-500/90 rounded-2xl opacity-5" />
               </motion.div>
             )}
           </AnimatePresence>
           
           <Card>
-            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-400/10 to-transparent rounded-bl-3xl" />
+            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-300/10 to-transparent rounded-bl-3xl" />
             <CardIcon>{item.icon}</CardIcon>
             {item.title && <CardTitle>{item.title}</CardTitle>}
             <CardDescription>{item.description}</CardDescription>
@@ -97,7 +97,7 @@ export const CardIcon = ({
 }) => {
   return (
     <div className={cn("mb-4", className)}>
-      <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-500 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
+      <div className="w-16 h-16 bg-gradient-to-br from-orange-300/90 to-orange-500/90 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
         <div className="text-white">
           {children}
         </div>
