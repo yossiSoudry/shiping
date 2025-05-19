@@ -45,8 +45,8 @@ const Footer = () => {
     },
     {
       icon: <Mail className="w-4 h-4" />,
-      text: "office@shipping.co.il",
-      href: "mailto:office@shipping.co.il",
+      text: "office@shipping2016.com.co.il",
+      href: "mailto:office@shipping2016.com.co.il",
     },
     { icon: <MapPin className="w-4 h-4" />, text: "תל אביב, ישראל", href: "#" },
     {
@@ -69,7 +69,7 @@ const Footer = () => {
     },
     {
       icon: <MdEmail className="w-5 h-5" />,
-      href: "mailto:office@shipping.co.il",
+      href: "mailto:office@shipping2016.com.co.il",
       label: "Gmail",
     },
     {

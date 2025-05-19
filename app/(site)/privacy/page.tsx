@@ -121,7 +121,7 @@ export const metadata = {
                   אם יש לך שאלות כלשהן לגבי מדיניות הפרטיות שלנו, אנא צור איתנו קשר:
                 </p>
                 <ul className="list-disc list-inside">
-                  <li>דוא&quot;ל: office@shipping.co.il</li>
+                  <li>דוא&quot;ל: office@shipping2016.com.co.il</li>
                   <li>טלפון: 052-760-0768</li>
                   <li>כתובת: פתח תקווה, ישראל</li>
                 </ul>
