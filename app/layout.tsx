@@ -59,14 +59,14 @@ export default function RootLayout({
         >
           <MdOutlineWhatsapp className="w-12 h-12 text-green-500 bg-white rounded-full" />
         </a>
-        {/* </Providers> */}
         <Script
           defer
           strategy="afterInteractive"
           src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-70823/init.js"
         />
-        {/* <script src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-70823/init.js"></script> */}
-        <GoogleAnalytics gaId="G-7CYHESWPLC" />
+        
+        {/* Google Analytics - החדש */}
+        <GoogleAnalytics gaId="G-C2QFZ18KMD" />
       </body>
     </html>
   );

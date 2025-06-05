@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import CountUp from "react-countup";
+import Link from "next/link";
 
 const content = [
   {
@@ -227,9 +228,11 @@ const StoryAboutUs = () => {
           או אדם מוכשר שרוצה להצטרף לצוות שלנו - מקומכם איתנו.
         </p>
         <div className="flex flex-wrap justify-center gap-4 mb-8">
+        <Link href="/contact">
           <button className="bg-white text-orange-500/90 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
             הצטרפו כלקוחות
           </button>
+        </Link>
           <button className="bg-blue-900/90 text-white hover:bg-blue-800/90font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
             קריירה בשיפינג
           </button>

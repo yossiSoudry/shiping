@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 import {
   FaMapMarkedAlt,
@@ -73,9 +74,11 @@ const OurServicesStory = () => {
             לאיכות ושימוש בטכנולוגיות המתקדמות ביותר, אנחנו מבטיחים שהמשלוחים שלכם
             יגיעו ליעדם בזמן ובשלמות.
           </p>
+          <Link href="/contact">
           <button className="bg-orange-400/90 hover:bg-orange-500/90 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
             בואו נתחיל
           </button>
+          </Link>
         </div>
       </div>
 
@@ -113,12 +116,16 @@ const OurServicesStory = () => {
             הצטרפו לאלפי לקוחות מרוצים שכבר נהנים משירות המשלוחים הטוב ביותר
           </p>
           <div className="flex justify-center gap-4">
+          <Link href="/contact">
             <button className="bg-orange-400/90 hover:bg-orange-500/90 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
               התחל עכשיו
             </button>
+          </Link>
+          <Link href="/contact">
             <button className="bg-white border-2 border-blue-900/90 text-blue-900/90 hover:bg-blue-900/90 hover:text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
               צור קשר
             </button>
+          </Link>
           </div>
         </div>
       </div>
