@@ -65,8 +65,19 @@ export default function RootLayout({
           src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-70823/init.js"
         />
         
-        {/* Google Analytics - החדש */}
-        <GoogleAnalytics gaId="G-C2QFZ18KMD" />
+        {/* Google Analytics - הטמעה ידנית */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-S4JBXKMNLV"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-S4JBXKMNLV');
+          `}
+        </Script>
       </body>
     </html>
   );
