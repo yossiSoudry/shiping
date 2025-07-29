@@ -1,11 +1,10 @@
 import { cn } from "@nextui-org/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { MdOutlineWhatsapp } from "react-icons/md";
-import "./globals.css";
 import Image from "next/image";
 import Script from "next/script";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { MdOutlineWhatsapp } from "react-icons/md";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -64,7 +63,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-70823/init.js"
         />
-        
+
         {/* Google Analytics - הטמעה ידנית */}
         <Script
           strategy="afterInteractive"

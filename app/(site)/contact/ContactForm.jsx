@@ -282,7 +282,7 @@ const ContactForm = () => {
             </p>
             <div className="flex flex-col md:flex-row justify-center gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center">
-                <div className="text-4xl font-bold mb-2">1.2K</div>
+                <div className="text-4xl font-bold mb-2">1.5K</div>
                 <div className="text-blue-100">מדרגים אותנו 5 כוכבים בגוגל</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center">

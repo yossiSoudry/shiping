@@ -36,11 +36,11 @@ const TestimonialsSection = () => {
     if (isVisible) {
       const interval = setInterval(() => {
         setReviewCount((prev) => {
-          if (prev < 1200) {
-            return prev + Math.ceil((1200 - prev) / 10);
+          if (prev < 1500) {
+            return prev + Math.ceil((1500 - prev) / 10);
           }
           clearInterval(interval);
-          return 1200;
+          return 1500;
         });
       }, 50);
 
