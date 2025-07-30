@@ -329,8 +329,8 @@ body.trigger-color-blue #enable-toolbar #enable-toolbar-trigger .keyboard-shorcu
   top: 75%;
   transform: translateY(-50%);
   background-color: #f8f8f8;
-  border-top: 2px solid rgba(30, 90, 150, 0.3);
-  border-bottom: 2px solid rgba(30, 90, 150, 0.3);
+  /* border-top: 2px solid rgba(30, 90, 150, 0.3); */
+  /* border-bottom: 2px solid rgba(30, 90, 150, 0.3); */
   display: flex;
   align-items: center;
   overflow: hidden;
