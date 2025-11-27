@@ -1,11 +1,10 @@
 import { cn } from "@nextui-org/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { MdOutlineWhatsapp } from "react-icons/md";
-import "./globals.css";
 import Image from "next/image";
 import Script from "next/script";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { MdOutlineWhatsapp } from "react-icons/md";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -59,14 +58,25 @@ export default function RootLayout({
         >
           <MdOutlineWhatsapp className="w-12 h-12 text-green-500 bg-white rounded-full" />
         </a>
-        {/* </Providers> */}
         <Script
           defer
           strategy="afterInteractive"
           src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-70823/init.js"
         />
-        {/* <script src="https://cdn.enable.co.il/licenses/enable-L260270heypcosni-0524-70823/init.js"></script> */}
-        <GoogleAnalytics gaId="G-7CYHESWPLC" />
+
+        {/* Google Analytics - הטמעה ידנית */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-S4JBXKMNLV"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-S4JBXKMNLV');
+          `}
+        </Script>
       </body>
     </html>
   );

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Package, Truck, Route, CheckCircle2, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 const processSteps = [
   {
@@ -195,6 +196,7 @@ export default function TimelineProcessV3() {
           >
             תהליך פשוט, מהיר ויעיל
           </motion.p>
+          <Link href="/contact">
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -202,6 +204,7 @@ export default function TimelineProcessV3() {
           >
             התחל עכשיו
           </motion.button>
+          </Link>
         </motion.div>
       </div>
     </div>

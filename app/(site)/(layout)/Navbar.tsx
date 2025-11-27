@@ -75,7 +75,7 @@ const Navbar = () => {
             <Link href="https://members.lionwheel.com/locate/locate_task?org=%D7%A9%D7%99%D7%A4%D7%99%D7%A0%D7%92%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%D7%99%D7%9D">
               <Button
                 variant="outline"
-                className="border-orange-500/90 text-orange-500/90 hover:bg-orange-50 gap-2"
+                className="border-orange-500/90 text-orange-500/90 hover:bg-orange-50 hover:text-orange-600 gap-2"
               >
                 <ScanBarcode className="w-4 h-4" />
                 בירור משלוח
@@ -213,7 +213,7 @@ const Navbar = () => {
                     <Link href="https://members.lionwheel.com/locate/locate_task?org=%D7%A9%D7%99%D7%A4%D7%99%D7%A0%D7%92%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%D7%99%D7%9D">
                       <Button
                         variant="outline"
-                        className="w-full border-orange-500/90 text-orange-500/90 hover:bg-orange-50 gap-2"
+                        className="w-full border-orange-500/90 text-orange-500/90 hover:bg-orange-50 hover:text-orange-600 gap-2"
                       >
                         <ScanBarcode className="w-4 h-4" />
                         בירור משלוח

@@ -22,7 +22,7 @@ export default function HeroStatistics() {
           </div>
           <div className="text-center">
             <CountUp
-              end={1200}
+              end={1500}
               start={1}
               duration={2.5}
               suffix="+"

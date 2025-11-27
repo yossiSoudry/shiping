@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent, FC } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaTruck } from "react-icons/fa";
+import { ChangeEvent, FC, FormEvent, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import { FaTruck } from "react-icons/fa";
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 
@@ -18,8 +18,14 @@ type FormData = {
   email: string;
 };
 
+type LidFormData = {
+  name: string;
+  phone: string;
+  email: string;
+};
+
 const LidForm: FC<LidFormProps> = ({ title }) => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<LidFormData>({
     name: "",
     phone: "",
     email: "",
@@ -154,7 +160,6 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
             השאירו פרטים ותתחילו להתייעל
           </h2>
         )}
-
         <form
           onSubmit={handleSubmit}
           className="flex flex-col md:flex-row items-center justify-between gap-4 text-slate-800"
@@ -169,7 +174,6 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
             required
             disabled={isSubmitting}
           />
-
           <input
             type="text"
             name="phone"
@@ -180,7 +184,6 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
             required
             disabled={isSubmitting}
           />
-
           <input
             type="email"
             name="email"
@@ -191,7 +194,6 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
             required
             disabled={isSubmitting}
           />
-
           <motion.button
             type="submit"
             disabled={isSubmitting}
@@ -228,9 +230,7 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
           )}
         </div>
 
-        {message && (
-          <p className="mt-4 text-center text-red-600">{message}</p>
-        )}
+        {message && <p className="mt-4 text-center text-red-600">{message}</p>}
       </div>
     </>
   );
