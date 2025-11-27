@@ -1,21 +1,21 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  useState,
+  ChangeEvent,
+  FormEvent,
+  FC,
+  useRef,
+} from "react";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, FC, FormEvent, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaTruck } from "react-icons/fa";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 
 export type LidFormProps = {
   title?: boolean;
-};
-
-type FormData = {
-  name: string;
-  phone: string;
-  email: string;
 };
 
 type LidFormData = {
@@ -33,7 +33,9 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
   const [message, setMessage] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [showCaptcha, setShowCaptcha] = useState<boolean>(false);
   const router = useRouter();
+  const recaptchaRef = useRef<any>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -49,7 +51,12 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
     setMessage("");
 
     if (!captchaToken) {
-      setMessage("נא לאשר שאינך רובוט");
+      if (!showCaptcha) {
+        setShowCaptcha(true);
+        setMessage("לאימות אבטחה, אנא אשר שאינך רובוט");
+      } else {
+        setMessage("נא לאשר שאינך רובוט");
+      }
       return;
     }
 
@@ -91,14 +98,11 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
             className="fixed inset-0 z-50 bg-gradient-to-br from-blue-900/95 to-blue-700/95 backdrop-blur-sm flex items-center justify-center"
           >
             <div className="text-center text-white">
-              {/* עיגול מסתובב */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 className="w-20 h-20 mx-auto mb-6 border-4 border-orange-300/30 border-t-orange-400 rounded-full"
               />
-
-              {/* אייקון משאית */}
               <motion.div
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -116,8 +120,6 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
                   <FaTruck className="w-16 h-16 text-orange-400 mx-auto" />
                 </motion.div>
               </motion.div>
-
-              {/* טקסט */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -134,8 +136,6 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
                   רק עוד רגע ואנחנו איתכם בדרך
                 </motion.p>
               </motion.div>
-
-              {/* Progress bar */}
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
@@ -194,6 +194,7 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
             required
             disabled={isSubmitting}
           />
+
           <motion.button
             type="submit"
             disabled={isSubmitting}
@@ -209,7 +210,11 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
               >
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 1,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
                 />
                 שולח...
@@ -220,17 +225,20 @@ const LidForm: FC<LidFormProps> = ({ title }) => {
           </motion.button>
         </form>
 
-        {/* reCAPTCHA */}
-        <div className="mt-4 flex justify-center">
-          {RECAPTCHA_SITE_KEY && (
+        {/* הקפצ’ה – רק אחרי ניסיון שליחה */}
+        {showCaptcha && RECAPTCHA_SITE_KEY && (
+          <div className="mt-4 flex justify-center">
             <ReCAPTCHA
+              ref={recaptchaRef}
               sitekey={RECAPTCHA_SITE_KEY}
               onChange={handleCaptchaChange}
             />
-          )}
-        </div>
+          </div>
+        )}
 
-        {message && <p className="mt-4 text-center text-red-600">{message}</p>}
+        {message && (
+          <p className="mt-4 text-center text-red-600">{message}</p>
+        )}
       </div>
     </>
   );

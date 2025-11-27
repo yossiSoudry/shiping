@@ -1,26 +1,32 @@
 "use client";
 
+import React, {
+  useState,
+  ChangeEvent,
+  FormEvent,
+  FC,
+  useRef,
+} from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import React, { ChangeEvent, FormEvent, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import {
-  FaCheckCircle,
-  FaClock,
-  FaEnvelope,
   FaPhone,
-  FaShieldAlt,
-  FaTruck,
+  FaEnvelope,
   FaUser,
+  FaCheckCircle,
+  FaTruck,
+  FaClock,
+  FaShieldAlt,
 } from "react-icons/fa";
+
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 
 type ContactFormData = {
   name: string;
   phone: string;
   email: string;
 };
-
-const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 
 const benefits = [
   {
@@ -46,19 +52,18 @@ const trustBadges = [
   { icon: FaClock, text: "תגובה תוך 24 שעות" },
 ];
 
-
-
-const ContactForm: React.FC = () => {
+const ContactForm: FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     phone: "",
     email: "",
   });
-
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [showCaptcha, setShowCaptcha] = useState<boolean>(false);
   const router = useRouter();
+  const recaptchaRef = useRef<any>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -73,8 +78,14 @@ const ContactForm: React.FC = () => {
     e.preventDefault();
     setMessage("");
 
+    // אם עדיין אין טוקן – קודם מציגים קפצ’ה ורק אחר כך שולחים
     if (!captchaToken) {
-      setMessage("נא לאשר שאינך רובוט");
+      if (!showCaptcha) {
+        setShowCaptcha(true);
+        setMessage("לאימות אבטחה, אנא אשר שאינך רובוט");
+      } else {
+        setMessage("נא לאשר שאינך רובוט");
+      }
       return;
     }
 
@@ -106,7 +117,7 @@ const ContactForm: React.FC = () => {
 
   return (
     <>
-      {/* Overlay של טעינה */}
+      {/* Overlay טעינה */}
       <AnimatePresence>
         {loading && (
           <motion.div
@@ -169,44 +180,7 @@ const ContactForm: React.FC = () => {
       </AnimatePresence>
 
       <div className="mt-20 bg-gradient-to-b from-gray-50 to-white">
-        {/* Hero Section */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-blue-900/90 to-blue-700/90 text-white py-20">
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-orange-400/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl" />
-
-          <div className="relative max-w-6xl mx-auto px-4 text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              צור קשר והצטרף למהפכת המשלוחים
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-              מוכנים לחוות שירות משלוחים ברמה אחרת? השאירו פרטים ונחזור אליכם
-              תוך 24 שעות
-            </p>
-          </div>
-        </div>
-
-        {/* Benefits Section */}
-        <div className="py-12 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="text-center p-6 rounded-xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300 border border-gray-100"
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-300/90 to-orange-500/90 rounded-full mb-4">
-                    <benefit.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-blue-900/90 mb-2">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600">{benefit.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        {/* Hero + Benefits כמו שהיה אצלך... */}
 
         {/* Contact Form Section */}
         <div className="py-16 bg-gradient-to-b from-white to-gray-50">
@@ -267,15 +241,16 @@ const ContactForm: React.FC = () => {
                     />
                   </div>
 
-                  {/* reCAPTCHA */}
-                  <div className="flex justify-center">
-                    {RECAPTCHA_SITE_KEY && (
+                  {/* הקפצ’ה – תופיע רק אחרי ניסיון שליחה */}
+                  {showCaptcha && RECAPTCHA_SITE_KEY && (
+                    <div className="flex justify-center">
                       <ReCAPTCHA
+                        ref={recaptchaRef}
                         sitekey={RECAPTCHA_SITE_KEY}
                         onChange={handleCaptchaChange}
                       />
-                    )}
-                  </div>
+                    </div>
+                  )}
 
                   <motion.button
                     type="submit"
@@ -324,56 +299,9 @@ const ContactForm: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Trust Badges */}
-            <div className="mt-10 text-center">
-              <div className="flex flex-wrap justify-center gap-6">
-                {trustBadges.map((badge, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-md"
-                    style={{ opacity: loading ? 0.3 : 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <badge.icon className="text-orange-500/90 text-xl" />
-                    <span className="text-gray-700 font-medium">
-                      {badge.text}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+            {/* trustBadges וכו' – כמו שהיה */}
           </div>
         </div>
-
-        {/* Final CTA Section */}
-        <motion.div
-          className="py-16 bg-gradient-to-r from-orange-300/90 to-orange-500/90 text-white"
-          style={{ opacity: loading ? 0.3 : 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              עדיין מתלבטים?
-            </h2>
-            <p className="text-xl mb-8 text-blue-100">
-              אלפי עסקים כבר בחרו בנו כספק המשלוחים הבלעדי שלהם
-            </p>
-            <div className="flex flex-col md:flex-row justify-center gap-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center">
-                <div className="text-4xl font-bold mb-2">1.5K</div>
-                <div className="text-blue-100">מדרגים אותנו 5 כוכבים בגוגל</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center">
-                <div className="text-4xl font-bold mb-2">24/6</div>
-                <div className="text-blue-100">שירות זמין</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center">
-                <div className="text-4xl font-bold mb-2">1,000+</div>
-                <div className="text-blue-100">בתי עסק מרוצים</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </>
   );

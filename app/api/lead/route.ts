@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET_KEY;
+
 const MAKE_WEBHOOK_URL =
   "https://hook.eu2.make.com/6nsscn50dbfjcn754cuuqe4nohkmwosq";
 
