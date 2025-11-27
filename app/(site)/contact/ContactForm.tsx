@@ -46,6 +46,8 @@ const trustBadges = [
   { icon: FaClock, text: "תגובה תוך 24 שעות" },
 ];
 
+
+
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
