@@ -4,11 +4,7 @@ import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { Package, Headphones, Truck, Cpu, Link, MapPin } from "lucide-react";
 
 export function CardHoverEffect() {
-  return (
-    <div className="max-w-7xl mx-auto px-8">
-      <HoverEffect items={projects} />
-    </div>
-  );
+  return <HoverEffect items={projects} />;
 }
 
 export const projects = [

@@ -173,7 +173,7 @@ const services = [
 ];
 
 const stats = [
-  { value: "1.2K", label: "מדרגים אותנו 5 כוכבים בגוגל" },
+  { value: "4K+", label: "מדרגים אותנו 5 כוכבים בגוגל" },
   { value: "24/6", label: "שירות זמין" },
   { value: "1,000+", label: "בתי עסק מרוצים" },
 ];

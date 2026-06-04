@@ -20,64 +20,74 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
+        "grid max-w-7xl mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4",
         className
       )}
     >
-      {items.map((item, idx) => (
-        <div
-          key={idx}
-          className="relative group"
-          onMouseEnter={() => setHoveredIndex(idx)}
-          onMouseLeave={() => setHoveredIndex(null)}
-        >
-          <AnimatePresence>
-            {hoveredIndex === idx && (
-              <motion.div
-                className="absolute inset-0 h-full w-full rounded-2xl"
-                layoutId="hoverBackground"
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  transition: { duration: 0.15 },
-                }}
-                exit={{
-                  opacity: 0,
-                  transition: { duration: 0.15, delay: 0.1 },
-                }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-300/90 to-orange-500/90 rounded-2xl opacity-10 blur-xl" />
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-300/90 to-orange-500/90 rounded-2xl opacity-5" />
-              </motion.div>
-            )}
-          </AnimatePresence>
-          
-          <Card>
-            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-300/10 to-transparent rounded-bl-3xl" />
-            <CardIcon>{item.icon}</CardIcon>
-            {item.title && <CardTitle>{item.title}</CardTitle>}
-            <CardDescription>{item.description}</CardDescription>
-          </Card>
-        </div>
-      ))}
+      {items.map((item, idx) => {
+        const accent = idx % 2 === 0 ? "orange" : "blue";
+        return (
+          <div
+            key={idx}
+            className="relative group"
+            onMouseEnter={() => setHoveredIndex(idx)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <AnimatePresence>
+              {hoveredIndex === idx && (
+                <motion.div
+                  className="absolute inset-0 h-full w-full rounded-2xl"
+                  layoutId="hoverBackground"
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: 1,
+                    transition: { duration: 0.15 },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    transition: { duration: 0.15, delay: 0.1 },
+                  }}
+                >
+                  <div
+                    className={cn(
+                      "absolute inset-0 rounded-2xl opacity-10 blur-xl",
+                      accent === "orange" ? "bg-brand-orange" : "bg-brand-blue"
+                    )}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <Card accent={accent}>
+              <CardIcon accent={accent}>{item.icon}</CardIcon>
+              {item.title && <CardTitle>{item.title}</CardTitle>}
+              <CardDescription>{item.description}</CardDescription>
+            </Card>
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 export const Card = ({
   className,
+  accent = "orange",
   children,
 }: {
   className?: string;
+  accent?: "orange" | "blue";
   children: React.ReactNode;
 }) => {
   return (
     <div
       className={cn(
         "rounded-2xl h-full w-full overflow-hidden bg-white",
-        "border border-gray-100 group-hover:border-orange-200",
-        "relative z-20 transition-all duration-300",
-        "group-hover:shadow-xl group-hover:-translate-y-1",
+        "border border-slate-100 relative z-20 transition-all duration-300",
+        "group-hover:shadow-xl group-hover:-translate-y-1.5",
+        accent === "orange"
+          ? "group-hover:border-brand-orange/30"
+          : "group-hover:border-brand-blue/30",
         className
       )}
     >
@@ -90,17 +100,24 @@ export const Card = ({
 
 export const CardIcon = ({
   className,
+  accent = "orange",
   children,
 }: {
   className?: string;
+  accent?: "orange" | "blue";
   children: React.ReactNode;
 }) => {
   return (
-    <div className={cn("mb-4", className)}>
-      <div className="w-16 h-16 bg-gradient-to-br from-orange-300/90 to-orange-500/90 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
-        <div className="text-white">
-          {children}
-        </div>
+    <div className={cn("mb-5", className)}>
+      <div
+        className={cn(
+          "w-16 h-16 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-md",
+          accent === "orange"
+            ? "bg-brand-orange/10 text-brand-orange"
+            : "bg-brand-blue/10 text-brand-blue"
+        )}
+      >
+        {children}
       </div>
     </div>
   );

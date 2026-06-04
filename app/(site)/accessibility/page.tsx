@@ -93,7 +93,7 @@ export const metadata = {
                 <ul className="list-disc list-inside">
                   <li>רכז נגישות: יוסי</li>
                   <li>דוא&quot;ל: accessibility@shipping.co.il</li>
-                  <li>טלפון: 052-760-0768</li>
+                  <li>טלפון: 077-212-0262</li>
                 </ul>
                 <p>
                   אנו מתחייבים לטפל בפניות בנושא נגישות בזמן סביר ולעשות כל מאמץ להנגיש תכנים שאינם נגישים.

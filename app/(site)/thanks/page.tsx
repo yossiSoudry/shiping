@@ -104,12 +104,12 @@ export default function ThanksPage() {
           </Link>
 
           <motion.div className="flex gap-4">
-            <a 
-              href="tel:052-760-0768"
+            <a
+              href="tel:077-212-0262"
               className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-full transition-all duration-300 shadow-lg flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />
-              052-760-0768
+              077-212-0262
             </a>
             
             <a 

@@ -9,39 +9,39 @@ const processSteps = [
     title: "הזמנה",
     description: "הזינו משלוח במערכת או באפליקציה",
     icon: Package,
-    color: "from-purple-500 to-purple-600",
-    bgColor: "bg-purple-100",
-    textColor: "text-purple-600"
+    color: "from-brand-blue-500 to-brand-blue-700",
+    bgColor: "bg-brand-blue-400",
+    textColor: "text-brand-blue-600"
   },
   {
     title: "איסוף",
     description: "נהג מגיע לאסוף את החבילה",
     icon: Truck,
-    color: "from-orange-500/90 to-orange-600",
-    bgColor: "bg-orange-100",
-    textColor: "text-orange-600"
+    color: "from-brand-orange-400 to-brand-orange-600",
+    bgColor: "bg-brand-orange-400",
+    textColor: "text-brand-orange-600"
   },
   {
     title: "משלוח",
     description: "הובלה מהירה ובטוחה ליעד",
     icon: Route,
-    color: "from-blue-500 to-blue-600",
-    bgColor: "bg-blue-100",
-    textColor: "text-blue-600"
+    color: "from-brand-blue-500 to-brand-blue-700",
+    bgColor: "bg-brand-blue-400",
+    textColor: "text-brand-blue-600"
   },
   {
     title: "מסירה",
     description: "קבלת אישור מסירה דיגיטלי",
     icon: CheckCircle2,
-    color: "from-green-500 to-green-600",
-    bgColor: "bg-green-100",
-    textColor: "text-green-600"
+    color: "from-brand-orange-400 to-brand-orange-600",
+    bgColor: "bg-brand-orange-400",
+    textColor: "text-brand-orange-600"
   }
 ];
 
 export default function TimelineProcessV3() {
   return (
-    <div className="py-20 bg-gradient-to-br from-blue-900/90 via-blue-700/90 to-blue-900/90 text-white overflow-hidden">
+    <div className="py-24 bg-gradient-to-br from-brand-blue-900 via-brand-blue-700 to-brand-blue-900 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
@@ -55,14 +55,14 @@ export default function TimelineProcessV3() {
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center text-blue-200 mb-16 text-lg"
+          className="text-center text-brand-blue-100 mb-16 text-lg"
         >
           תהליך פשוט ויעיל ב-4 צעדים בלבד
         </motion.p>
         
         <div className="relative">
           {/* Connection Line - positioned between titles */}
-          <div className="hidden md:block absolute left-[12.5%] right-[12.5%] h-1 bg-blue-700/30"
+          <div className="hidden md:block absolute left-[12.5%] right-[12.5%] h-1 bg-white/15"
                style={{
                  top: 'calc(50% + 26px)', // Moved down just 20px
                  transform: 'translateY(-50%)'
@@ -71,7 +71,7 @@ export default function TimelineProcessV3() {
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ duration: 2, ease: "easeInOut" }}
-              className="absolute inset-0 bg-gradient-to-l from-green-400 via-orange-400/90 to-blue-400 origin-right h-full"
+              className="absolute inset-0 bg-gradient-to-l from-brand-orange-400 via-brand-orange-300 to-brand-blue-400 origin-right h-full"
             />
           </div>
 
@@ -131,7 +131,7 @@ export default function TimelineProcessV3() {
                   {/* Content with Typewriter Effect */}
                   <motion.div>
                     <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-blue-200 text-sm">{step.description}</p>
+                    <p className="text-brand-blue-100 text-sm">{step.description}</p>
                   </motion.div>
 
                   {/* Arrow positioned between titles */}
@@ -157,7 +157,7 @@ export default function TimelineProcessV3() {
                         }}
                         className="relative flex items-center justify-center"
                       >
-                        <ArrowLeft className="w-10 h-10 text-orange-400" />
+                        <ArrowLeft className="w-10 h-10 text-brand-orange-400" />
                         {/* Glow effect */}
                         <motion.div
                           animate={{
@@ -171,7 +171,7 @@ export default function TimelineProcessV3() {
                           }}
                           className="absolute inset-0 blur-sm flex items-center justify-center"
                         >
-                          <ArrowLeft className="w-10 h-10 text-orange-300" />
+                          <ArrowLeft className="w-10 h-10 text-brand-orange-300" />
                         </motion.div>
                       </motion.div>
                     </motion.div>
@@ -192,7 +192,7 @@ export default function TimelineProcessV3() {
           <motion.p 
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-xl text-orange-300 mb-6"
+            className="text-xl text-brand-orange-300 mb-6"
           >
             תהליך פשוט, מהיר ויעיל
           </motion.p>
@@ -200,7 +200,7 @@ export default function TimelineProcessV3() {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-orange-300/90 to-orange-500/90  hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg"
+            className="bg-brand-orange hover:bg-brand-orange-500 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 shadow-lg shadow-brand-orange/30"
           >
             התחל עכשיו
           </motion.button>

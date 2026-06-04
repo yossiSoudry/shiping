@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowLeft, Star, ShieldCheck, Truck, Sparkles } from "lucide-react";
 import { CardHoverEffect } from "./HeroCardHoverEffect";
 import { HeroImages } from "./HeroImages";
 import HeroStatistics from "./HeroStatistics";
@@ -8,87 +9,141 @@ import { RoadBackground } from "@/components/ui/RoadBackground";
 
 export default function Home() {
   return (
-    <div className="">
+    <div>
       {/* Hero Section */}
-      <div className="h-screen w-full illustrated-road-background relative overflow-hidden">
-        {/* רקע הכביש המאויר */}
+      <section className="illustrated-road-background relative flex min-h-screen w-full flex-col overflow-hidden">
         <RoadBackground />
 
-        <div className="flex flex-col gap-10 h-fit relative z-10">
-          <div className="text-center pt-20">
-            <p className="text-5xl md:text-8xl font-bold relative bg-clip-text text-transparent bg-gradient-to-b from-blue-900/90 to-blue-400 py-8">
+        <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-4 pt-32 pb-8 text-center sm:pt-36">
+          {/* Badge */}
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-blue/15 bg-white/70 px-4 py-1.5 text-sm font-medium text-brand-blue shadow-sm backdrop-blur">
+            <Sparkles className="h-4 w-4 text-brand-orange" />
+            פתרונות לוגיסטיקה מתקדמים מאז 2016
+          </div>
+
+          {/* Headline */}
+          <h1 className="text-balance text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
+            <span className="bg-gradient-to-b from-brand-blue-700 to-brand-blue-400 bg-clip-text text-transparent">
               המרחקים קטנים
-            </p>
-            <p className="text-5xl md:text-8xl font-bold relative bg-clip-text text-transparent bg-gradient-to-b from-orange-300 to-orange-500">
-              כשאנחנו בדרך...
-            </p>
-            <p className="text-3xl text-gray-600 mt-6 max-w-4xl mx-auto px-4">
-              שירותי משלוחים מקצועיים ואמינים לכל רחבי הארץ. מאז 2016 אנחנו
-              מספקים פתרונות לוגיסטיים מתקדמים לעסקים ופרטיים
-            </p>
-            <div className="mt-8 flex justify-center gap-4">
-              <Link href="/contact">
-                <button className="bg-orange-400/90 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition-colors">
-                  התחל עכשיו
-                </button>
-              </Link>
-              <Link href="/about">
-                <button className="border-2 border-blue-900/90 text-blue-900/90 hover:bg-blue-900/90 hover:text-white font-bold py-3 px-8 rounded-full transition-colors">
-                  על החברה
-                </button>
-              </Link>
+            </span>
+            <br />
+            <span className="bg-gradient-to-b from-brand-orange-400 to-brand-orange-600 bg-clip-text text-transparent">
+              כשאנחנו בדרך
+            </span>
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-lg text-slate-600 md:text-xl">
+            שירותי משלוחים מקצועיים ואמינים לכל רחבי הארץ. אנחנו מספקים פתרונות
+            לוגיסטיים חכמים לעסקים ולפרטיים — מהיר, מדויק ובשליטה מלאה.
+          </p>
+
+          {/* CTAs */}
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-brand-orange px-8 py-3.5 font-bold text-white shadow-lg shadow-brand-orange/30 transition-all hover:-translate-y-0.5 hover:bg-brand-orange-500 hover:shadow-xl"
+            >
+              התחל עכשיו
+              <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
+            </Link>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-brand-blue/20 bg-white/60 px-8 py-3.5 font-bold text-brand-blue backdrop-blur transition-all hover:border-brand-blue hover:bg-brand-blue hover:text-white"
+            >
+              על החברה
+            </Link>
+          </div>
+
+          {/* Trust row */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-500">
+            <div className="flex items-center gap-2">
+              <span className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="h-4 w-4 fill-brand-orange text-brand-orange"
+                  />
+                ))}
+              </span>
+              <span className="font-medium text-slate-700">
+                4,000+ דירוגי 5 כוכבים בגוגל
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 text-brand-blue" />
+              <span>שירות זמין 24/6</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Truck className="h-4 w-4 text-brand-blue" />
+              <span>פריסה ארצית מלאה</span>
             </div>
           </div>
+        </div>
+
+        {/* Vehicles slider — full bleed, edge to edge */}
+        <div className="relative z-10 mt-auto w-full">
           <HeroImages />
         </div>
-      </div>
+      </section>
 
       {/* Stats Section */}
       <HeroStatistics />
 
       {/* Why Choose Us */}
-      <div className="py-16 bg-white">
-        <h2 className="text-4xl font-bold text-center text-blue-900/90 mb-6">
-          למה לבחור בשיפינג?
-        </h2>
-        <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto px-4">
-          אנחנו לא סתם חברת משלוחים. אנחנו השותף העסקי שלכם, המחויב להצלחה שלכם
-          ושל הלקוחות שלכם
-        </p>
-        <CardHoverEffect />
-      </div>
-
-      {/* Services Overview */}
-      {/* <ServicesSection /> */}
+      <section className="bg-gradient-to-b from-white to-slate-50 py-24">
+        <div className="mx-auto max-w-3xl px-4 text-center">
+          <span className="mb-4 inline-block rounded-full bg-brand-orange/10 px-4 py-1.5 text-sm font-semibold text-brand-orange-600">
+            למה שיפינג
+          </span>
+          <h2 className="text-4xl font-bold tracking-tight text-brand-blue-800">
+            לא סתם חברת משלוחים
+          </h2>
+          <p className="mt-4 text-lg text-slate-600">
+            אנחנו השותף העסקי שלכם — מחויבים להצלחה שלכם ושל הלקוחות שלכם, בכל
+            משלוח ובכל שעה.
+          </p>
+        </div>
+        <div className="mt-14">
+          <CardHoverEffect />
+        </div>
+      </section>
 
       {/* Process Section */}
       <ModernTimelineProcess />
 
       {/* Testimonials */}
-      <div className="py-10 bg-white">
+      <section className="bg-white py-16">
         <TestimonialsSection />
-      </div>
+      </section>
 
       {/* CTA Section */}
-      <div className="py-20 bg-gradient-to-r px-4 from-orange-300/90 to-orange-500/90  text-white text-center">
-        <h2 className="text-4xl font-bold mb-6">מוכנים להתחיל?</h2>
-        <p className="text-xl mb-8 max-w-2xl mx-auto">
-          הצטרפו לאלפי לקוחות מרוצים שכבר נהנים משירות המשלוחים הטוב ביותר
-          בישראל
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link href="/contact">
-            <button className="bg-white text-orange-500/90 hover:bg-gray-100 font-bold py-4 px-8 rounded-full transition-colors">
+      <section className="relative overflow-hidden bg-brand-blue-800 px-4 py-24 text-center text-white">
+        <div className="absolute -top-24 right-1/4 h-72 w-72 rounded-full bg-brand-orange/20 blur-3xl" />
+        <div className="absolute -bottom-24 left-1/4 h-72 w-72 rounded-full bg-brand-blue-400/30 blur-3xl" />
+        <div className="relative z-10 mx-auto max-w-2xl">
+          <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+            מוכנים להתחיל?
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-lg text-brand-blue-100">
+            הצטרפו לאלפי לקוחות מרוצים שכבר נהנים משירות המשלוחים הטוב בישראל.
+          </p>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-brand-orange px-8 py-4 font-bold text-white shadow-lg shadow-brand-orange/30 transition-all hover:-translate-y-0.5 hover:bg-brand-orange-500"
+            >
               קבל הצעת מחיר
-            </button>
-          </Link>
-          <Link href="/services">
-            <button className="bg-blue-900/90 text-white hover:bg-blue-800/90font-bold py-4 px-8 rounded-full transition-colors">
+              <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center rounded-full border-2 border-white/30 bg-white/5 px-8 py-4 font-bold text-white backdrop-blur transition-all hover:bg-white hover:text-brand-blue-800"
+            >
               הכירו את השירותים שלנו
-            </button>
-          </Link>
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

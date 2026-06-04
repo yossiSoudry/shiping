@@ -122,8 +122,8 @@ export const metadata = {
                 </p>
                 <ul className="list-disc list-inside">
                   <li>דוא&quot;ל: office@shipping2016.com.co.il</li>
-                  <li>טלפון: 052-760-0768</li>
-                  <li>כתובת: פתח תקווה, ישראל</li>
+                  <li>טלפון: 077-212-0262</li>
+                  <li>כתובת: הסדנה 7, פתח תקווה</li>
                 </ul>
   
                 <p className="text-sm text-gray-500 mt-8">

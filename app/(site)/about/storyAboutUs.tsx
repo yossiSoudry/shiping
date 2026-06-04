@@ -160,7 +160,7 @@ const StoryAboutUs = () => {
           </div>
           <div className="text-center">
             <CountUp
-              end={1500}
+              end={4000}
               start={1}
               duration={2.5}
               suffix="+"

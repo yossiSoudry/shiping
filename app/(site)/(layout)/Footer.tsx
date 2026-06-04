@@ -40,15 +40,19 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: <Phone className="w-4 h-4" />,
-      text: "052-760-0768",
-      href: "tel:052-760-0768",
+      text: "077-212-0262",
+      href: "tel:077-212-0262",
     },
     {
       icon: <Mail className="w-4 h-4" />,
       text: "office@shipping2016.com.co.il",
       href: "mailto:office@shipping2016.com.co.il",
     },
-    { icon: <MapPin className="w-4 h-4" />, text: "תל אביב, ישראל", href: "#" },
+    {
+      icon: <MapPin className="w-4 h-4" />,
+      text: "הסדנה 7, פתח תקווה",
+      href: "https://maps.google.com/?q=הסדנה+7+פתח+תקווה",
+    },
     {
       icon: <Clock className="w-4 h-4" />,
       text: "ראשון-חמישי: 8:00-18:00",
@@ -80,10 +84,13 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-blue-800/90 to-blue-700/90 text-white z-40">
+    <footer className="relative z-40 bg-brand-blue-900 text-white">
+      {/* פס אקצנט עליון */}
+      <div className="h-1 w-full bg-gradient-to-l from-brand-orange-400 via-brand-orange to-brand-blue-400" />
+
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
@@ -95,25 +102,27 @@ const Footer = () => {
                 className="brightness-0 invert"
               />
             </Link>
-            <p className="text-blue-100 max-w-64 text-sm leading-relaxed">
+            <p className="max-w-64 text-sm leading-relaxed text-brand-blue-100/80">
               שיפינג משלוחים - החברה המובילה בישראל למשלוחים מהירים ואמינים. אנו
               מספקים פתרונות לוגיסטיים מתקדמים לעסקים ופרטיים מאז 2016.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold text-orange-400">
+          <div className="space-y-5">
+            <h3 className="text-base font-bold uppercase tracking-wide text-brand-orange-400">
               קישורים מהירים
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {navigationLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="flex items-center gap-2 text-blue-100 hover:text-orange-400/90 transition-colors"
+                    className="group flex items-center gap-2.5 text-sm text-brand-blue-100/80 transition-colors hover:text-brand-orange-400"
                   >
-                    {link.icon}
+                    <span className="text-brand-blue-300 transition-colors group-hover:text-brand-orange-400">
+                      {link.icon}
+                    </span>
                     {link.title}
                   </Link>
                 </li>
@@ -122,16 +131,20 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold text-orange-400">צור קשר</h3>
-            <ul className="space-y-3">
+          <div className="space-y-5">
+            <h3 className="text-base font-bold uppercase tracking-wide text-brand-orange-400">
+              צור קשר
+            </h3>
+            <ul className="space-y-3.5">
               {contactInfo.map((info, index) => (
                 <li key={index}>
                   <a
                     href={info.href}
-                    className="flex items-center gap-3 text-blue-100 hover:text-orange-400/90 transition-colors"
+                    className="group flex items-center gap-3 text-sm text-brand-blue-100/80 transition-colors hover:text-brand-orange-400"
                   >
-                    <span className="text-orange-400">{info.icon}</span>
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-brand-orange-400 transition-colors group-hover:bg-brand-orange/15">
+                      {info.icon}
+                    </span>
                     {info.text}
                   </a>
                 </li>
@@ -140,26 +153,25 @@ const Footer = () => {
           </div>
 
           {/* Social */}
-          <div className="w-fit">
-          <h3 className="text-lg font-bold text-orange-400">
+          <div className="w-fit space-y-5">
+            <h3 className="text-base font-bold uppercase tracking-wide text-brand-orange-400">
               עקבו אחרינו
             </h3>
-              {/* <h4 className="text-sm text-center font-semibold mb-3"></h4> */}
-              <div className="flex gap-3 mt-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="w-10 h-10 rounded-full bg-orange-400/90 hover:bg-blue-800/90 flex items-center justify-center transition-colors"
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
+            <div className="flex gap-3">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all hover:-translate-y-0.5 hover:border-brand-orange/40 hover:bg-brand-orange hover:text-white"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
+          </div>
           {/* <div className="space-y-4">
             <h3 className="text-lg font-bold text-orange-400">
               הישארו מעודכנים
@@ -185,26 +197,26 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-blue-700">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-blue-200">
+      <div className="border-t border-white/10">
+        <div className="container mx-auto px-4 py-5">
+          <div className="flex flex-col items-center justify-between gap-4 text-sm text-brand-blue-200/70 md:flex-row">
             <div>© {currentYear} שיפינג משלוחים. כל הזכויות שמורות.</div>
             <div className="flex gap-6">
               <Link
                 href="/privacy"
-                className="hover:text-orange-400/90 transition-colors"
+                className="transition-colors hover:text-brand-orange-400"
               >
                 מדיניות פרטיות
               </Link>
               <Link
                 href="/terms"
-                className="hover:text-orange-400/90 transition-colors"
+                className="transition-colors hover:text-brand-orange-400"
               >
                 תנאי שימוש
               </Link>
               <Link
                 href="/accessibility"
-                className="hover:text-orange-400/90 transition-colors"
+                className="transition-colors hover:text-brand-orange-400"
               >
                 הצהרת נגישות
               </Link>

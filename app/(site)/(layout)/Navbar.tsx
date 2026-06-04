@@ -65,7 +65,7 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/70 backdrop-blur-lg shadow-lg border-b border-gray-200"
+          ? "bg-white/80 backdrop-blur-xl shadow-sm border-b border-slate-200/70"
           : "bg-transparent"
       )}
     >
@@ -75,7 +75,7 @@ const Navbar = () => {
             <Link href="https://members.lionwheel.com/locate/locate_task?org=%D7%A9%D7%99%D7%A4%D7%99%D7%A0%D7%92%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%D7%99%D7%9D">
               <Button
                 variant="outline"
-                className="border-orange-500/90 text-orange-500/90 hover:bg-orange-50 hover:text-orange-600 gap-2"
+                className="gap-2 rounded-full border-brand-orange/60 text-brand-orange hover:border-brand-orange hover:bg-brand-orange/10 hover:text-brand-orange-600"
               >
                 <ScanBarcode className="w-4 h-4" />
                 בירור משלוח
@@ -83,7 +83,7 @@ const Navbar = () => {
             </Link>
 
             <Link href="https://members.lionwheel.com/?locale=he">
-              <Button className="bg-gradient-to-br from-blue-900/90 to-blue-700/90 hover:bg-blue-800/90 text-white gap-2">
+              <Button className="gap-2 rounded-full bg-gradient-to-br from-brand-blue-700 to-brand-blue-500 text-white shadow-md shadow-brand-blue/20 hover:from-brand-blue-800 hover:to-brand-blue-600">
                 <UsersRound className="w-4 h-4" />
                 כניסת משתמשים
               </Button>
@@ -100,12 +100,10 @@ const Navbar = () => {
               >
                 <span
                   className={cn(
-                    "flex items-center gap-2 text-lg transition-colors",
+                    "flex items-center gap-2 text-lg font-medium transition-colors",
                     pathname === item.href
-                      ? "text-orange-500"
-                      : scrolled
-                      ? "text-sky-800 hover:text-orange-500"
-                      : "text-sky-900 hover:text-orange-300"
+                      ? "text-brand-orange"
+                      : "text-brand-blue-800 hover:text-brand-orange"
                   )}
                 >
                   {item.title}
@@ -113,7 +111,7 @@ const Navbar = () => {
                 {pathname === item.href && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-orange-500"
+                    className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full bg-brand-orange"
                     transition={{
                       type: "spring",
                       bounce: 0.2,
@@ -153,7 +151,7 @@ const Navbar = () => {
                 <Button
                   size="icon"
                   variant="outline"
-                  className="border-orange-500/90 text-orange-500/90 hover:bg-orange-50"
+                  className="rounded-full border-brand-orange/60 text-brand-orange hover:border-brand-orange hover:bg-brand-orange/10"
                 >
                   <ScanBarcode className="w-5 h-5" />
                 </Button>
@@ -161,7 +159,7 @@ const Navbar = () => {
               <Link href="https://members.lionwheel.com/?locale=he">
                 <Button
                   size="icon"
-                  className="bg-blue-900/90 hover:bg-blue-800/90text-white"
+                  className="rounded-full bg-brand-blue-700 text-white hover:bg-brand-blue-800"
                 >
                   <UsersRound className="w-5 h-5" />
                 </Button>
@@ -194,13 +192,13 @@ const Navbar = () => {
                           <Link
                             href={item.href}
                             className={cn(
-                              "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors",
+                              "flex items-center gap-3 px-4 py-3 rounded-xl transition-colors",
                               pathname === item.href
-                                ? "bg-orange-50 text-orange-600"
-                                : "text-gray-700 hover:bg-gray-50"
+                                ? "bg-brand-orange/10 text-brand-orange-600"
+                                : "text-slate-700 hover:bg-slate-50"
                             )}
                           >
-                            <span className="text-orange-500">{item.icon}</span>
+                            <span className="text-brand-orange">{item.icon}</span>
                             <span className="font-medium">{item.title}</span>
                           </Link>
                         </SheetClose>
@@ -209,18 +207,18 @@ const Navbar = () => {
                   </div>
 
                   {/* Mobile Action Buttons */}
-                  <div className="border-t border-gray-200 pt-6 pb-8 space-y-3">
+                  <div className="border-t border-slate-200 pt-6 pb-8 space-y-3">
                     <Link href="https://members.lionwheel.com/locate/locate_task?org=%D7%A9%D7%99%D7%A4%D7%99%D7%A0%D7%92%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%D7%99%D7%9D">
                       <Button
                         variant="outline"
-                        className="w-full border-orange-500/90 text-orange-500/90 hover:bg-orange-50 hover:text-orange-600 gap-2"
+                        className="w-full gap-2 rounded-full border-brand-orange/60 text-brand-orange hover:border-brand-orange hover:bg-brand-orange/10 hover:text-brand-orange-600"
                       >
                         <ScanBarcode className="w-4 h-4" />
                         בירור משלוח
                       </Button>
                     </Link>
                     <Link href="https://members.lionwheel.com/?locale=he">
-                      <Button className="w-full bg-gradient-to-br from-blue-900/90 to-blue-700/90 hover:bg-blue-800/90 text-white gap-2 mt-4">
+                      <Button className="mt-4 w-full gap-2 rounded-full bg-gradient-to-br from-brand-blue-700 to-brand-blue-500 text-white shadow-md shadow-brand-blue/20 hover:from-brand-blue-800 hover:to-brand-blue-600">
                         <UsersRound className="w-4 h-4" />
                         כניסת משתמשים
                       </Button>
