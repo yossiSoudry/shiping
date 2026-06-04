@@ -3,23 +3,34 @@ import { NextRequest, NextResponse } from "next/server";
 
 const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET_KEY;
 
-const MAKE_WEBHOOK_URL =
-  "https://hook.eu2.make.com/6nsscn50dbfjcn754cuuqe4nohkmwosq";
+const SHIPNEST_URL =
+  process.env.SHIPNEST_LEADS_URL ?? "https://shipnest.io/api/public/leads";
+const SHIPNEST_TOKEN = process.env.SHIPNEST_LEAD_TOKEN;
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, phone, email, captchaToken } = await req.json();
+    const {
+      name,
+      businessName,
+      phone,
+      email,
+      city,
+      notes,
+      source,
+      captchaToken,
+    } = await req.json();
 
-    if (!name || !phone || !email) {
+    // ולידציה מינימלית – שאר הולידציה מטופלת ב-ShipNest
+    if (!name || !phone) {
       return NextResponse.json(
-        { success: false, message: "חסרים פרטי טופס" },
+        { error: "חסרים פרטי טופס" },
         { status: 400 }
       );
     }
 
     if (!captchaToken) {
       return NextResponse.json(
-        { success: false, message: "אימות reCAPTCHA חסר" },
+        { error: "אימות reCAPTCHA חסר" },
         { status: 400 }
       );
     }
@@ -27,7 +38,15 @@ export async function POST(req: NextRequest) {
     if (!RECAPTCHA_SECRET) {
       console.error("RECAPTCHA_SECRET_KEY is missing");
       return NextResponse.json(
-        { success: false, message: "שגיאת הגדרות בשרת" },
+        { error: "שגיאת הגדרות בשרת" },
+        { status: 500 }
+      );
+    }
+
+    if (!SHIPNEST_TOKEN) {
+      console.error("SHIPNEST_LEAD_TOKEN is missing");
+      return NextResponse.json(
+        { error: "שגיאת הגדרות בשרת" },
         { status: 500 }
       );
     }
@@ -55,32 +74,45 @@ export async function POST(req: NextRequest) {
       (typeof verifyData.score === "number" && verifyData.score < 0.5)
     ) {
       return NextResponse.json(
-        { success: false, message: "אימות reCAPTCHA נכשל" },
+        { error: "אימות reCAPTCHA נכשל" },
         { status: 400 }
       );
     }
 
-    // אם עברנו את ה־Captcha – שליחה ל-Make
-    const makeRes = await fetch(MAKE_WEBHOOK_URL, {
+    // שליחה ישירה ל-CRM (ShipNest) – הוא שמטפל בהמשך (מייל וכו')
+    const crmRes = await fetch(SHIPNEST_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, phone, email }),
+      body: JSON.stringify({
+        token: SHIPNEST_TOKEN,
+        name,
+        businessName: businessName ?? "",
+        phone,
+        email: email ?? "",
+        city: city ?? "",
+        notes: notes ?? "",
+        source: source ?? req.headers.get("host") ?? "",
+      }),
     });
 
-    if (!makeRes.ok) {
-      console.error("Error sending to Make:", await makeRes.text());
+    const crmData = await crmRes.json().catch(() => null);
+
+    // העברת קוד הסטטוס של ShipNest כפי שהוא (כולל 429) כדי שהלקוח יטפל נכון
+    if (!crmRes.ok) {
+      console.error("ShipNest lead error:", crmRes.status, crmData);
       return NextResponse.json(
-        { success: false, message: "שגיאה בשליחת הליד לאוטומציה" },
-        { status: 500 }
+        { error: crmData?.error || "שגיאה בשליחת הליד" },
+        { status: crmRes.status }
       );
     }
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    // success: { success: true, leadId } או { success: true, duplicate: true }
+    return NextResponse.json(
+      { success: true, leadId: crmData?.leadId, duplicate: crmData?.duplicate },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Lead API error:", error);
-    return NextResponse.json(
-      { success: false, message: "שגיאה בשרת" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "שגיאה בשרת" }, { status: 500 });
   }
 }

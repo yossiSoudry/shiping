@@ -8,7 +8,6 @@ import React, {
   useRef,
 } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import ReCAPTCHA from "react-google-recaptcha";
 import {
   FaPhone,
@@ -18,14 +17,29 @@ import {
   FaTruck,
   FaClock,
   FaShieldAlt,
+  FaBuilding,
+  FaMapMarkerAlt,
+  FaRegCommentDots,
 } from "react-icons/fa";
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 
 type ContactFormData = {
   name: string;
+  businessName: string;
   phone: string;
   email: string;
+  city: string;
+  notes: string;
+};
+
+const initialData: ContactFormData = {
+  name: "",
+  businessName: "",
+  phone: "",
+  email: "",
+  city: "",
+  notes: "",
 };
 
 const benefits = [
@@ -53,25 +67,28 @@ const trustBadges = [
 ];
 
 const ContactForm: FC = () => {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    phone: "",
-    email: "",
-  });
+  const [formData, setFormData] = useState<ContactFormData>(initialData);
   const [message, setMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [success, setSuccess] = useState<boolean>(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [showCaptcha, setShowCaptcha] = useState<boolean>(false);
-  const router = useRouter();
   const recaptchaRef = useRef<any>(null);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleCaptchaChange = (token: string | null) => {
     setCaptchaToken(token);
+  };
+
+  const resetCaptcha = () => {
+    recaptchaRef.current?.reset();
+    setCaptchaToken(null);
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -95,25 +112,43 @@ const ContactForm: FC = () => {
       const response = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, captchaToken }),
+        body: JSON.stringify({
+          ...formData,
+          source:
+            typeof window !== "undefined" ? window.location.hostname : "",
+          captchaToken,
+        }),
       });
 
       if (response.ok) {
-        setTimeout(() => {
-          router.push("/thanks");
-        }, 1500);
-      } else {
-        const data = await response.json().catch(() => null);
-        setMessage(
-          data?.message || "אירעה שגיאה בשליחת הטופס. נסה שוב מאוחר יותר."
-        );
+        // success או duplicate – בשני המקרים מציגים תודה
+        setSuccess(true);
         setLoading(false);
+        return;
       }
+
+      // שגיאות – שומרים על הערכים שהוקלדו ומאפשרים ניסיון חוזר
+      const data = await response.json().catch(() => null);
+      if (response.status === 429) {
+        setMessage("ניסיתם להירשם פעמים רבות מדי, נסו שוב מאוחר יותר");
+      } else {
+        setMessage(
+          data?.error || "אירעה שגיאה בשליחת הטופס. נסה שוב מאוחר יותר."
+        );
+      }
+      resetCaptcha();
+      setLoading(false);
     } catch (error) {
       setMessage("אירעה תקלה. אנא נסה שוב.");
+      resetCaptcha();
       setLoading(false);
     }
   };
+
+  const inputClass =
+    "w-full rounded-xl border-2 border-slate-200 bg-slate-50/50 py-3.5 pr-12 pl-4 text-right transition-all placeholder:text-slate-400 focus:border-brand-orange focus:bg-white focus:outline-none focus:ring-4 focus:ring-brand-orange/10 disabled:opacity-50";
+  const labelClass =
+    "mb-1.5 block text-sm font-medium text-slate-700";
 
   return (
     <>
@@ -124,185 +159,322 @@ const ContactForm: FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-gradient-to-br from-blue-900/95 to-blue-700/95 backdrop-blur-sm flex items-center justify-center"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-brand-blue-900/95 to-brand-blue-700/95 backdrop-blur-sm"
           >
             <div className="text-center text-white">
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                className="w-20 h-20 mx-auto mb-6 border-4 border-orange-300/30 border-t-orange-400 rounded-full"
+                className="mx-auto mb-6 h-20 w-20 rounded-full border-4 border-brand-orange/30 border-t-brand-orange"
               />
-
               <motion.div
-                initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                animate={{ x: [0, 10, 0] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="mb-6"
               >
-                <motion.div
-                  animate={{ x: [0, 10, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <FaTruck className="w-16 h-16 text-orange-400 mx-auto" />
-                </motion.div>
+                <FaTruck className="mx-auto h-16 w-16 text-brand-orange-400" />
               </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+              <h3 className="mb-2 text-2xl font-bold text-brand-orange-300">
+                שולח את הפרטים...
+              </h3>
+              <motion.p
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="text-brand-blue-100"
               >
-                <h3 className="text-2xl font-bold mb-2 text-orange-300">
-                  שולח את הפרטים...
-                </h3>
-                <motion.p
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="text-blue-200"
-                >
-                  רק עוד רגע ואנחנו איתכם בדרך
-                </motion.p>
-              </motion.div>
-
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1.5 }}
-                className="mt-8 h-1 bg-orange-400 rounded-full max-w-xs mx-auto"
-              />
+                רק עוד רגע ואנחנו איתכם בדרך
+              </motion.p>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <div className="mt-20 bg-gradient-to-b from-gray-50 to-white">
-        {/* Hero + Benefits כמו שהיה אצלך... */}
+      <section className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-20">
+        <div className="mx-auto max-w-6xl px-4">
+          {/* Header */}
+          <div className="mx-auto mb-14 max-w-2xl text-center">
+            <span className="mb-4 inline-block rounded-full bg-brand-orange/10 px-4 py-1.5 text-sm font-semibold text-brand-orange-600">
+              צרו קשר
+            </span>
+            <h1 className="text-4xl font-bold tracking-tight text-brand-blue-800 md:text-5xl">
+              קבלו הצעת מחיר אישית
+            </h1>
+            <p className="mt-4 text-lg text-slate-600">
+              השאירו פרטים ונחזור אליכם עם פתרון משלוחים מותאם בדיוק לעסק שלכם —
+              תוך 24 שעות.
+            </p>
+          </div>
 
-        {/* Contact Form Section */}
-        <div className="py-16 bg-gradient-to-b from-white to-gray-50">
-          <div className="max-w-4xl mx-auto px-4">
-            <motion.div
-              className="bg-white rounded-2xl shadow-2xl overflow-hidden"
-              style={{ opacity: loading ? 0.3 : 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="bg-gradient-to-r from-orange-300/90 to-orange-500/90 p-8 text-white text-center">
-                <h2 className="text-3xl font-bold mb-2">מלאו את הטופס עכשיו</h2>
-                <p className="text-orange-100">
-                  ותקבלו הצעת מחיר מותאמת אישית תוך 24 שעות
+          <div className="grid items-stretch gap-8 lg:grid-cols-5">
+            {/* Info panel */}
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-blue-800 to-brand-blue-900 p-8 text-white lg:col-span-2 lg:p-10">
+              <div className="absolute -top-20 -left-16 h-56 w-56 rounded-full bg-brand-orange/20 blur-3xl" />
+              <div className="relative z-10">
+                <h2 className="text-2xl font-bold">למה שיפינג?</h2>
+                <p className="mt-2 text-brand-blue-100/80">
+                  אלפי עסקים כבר בוחרים בנו. הצטרפו אליהם.
                 </p>
-              </div>
 
-              <div className="p-8 md:p-12">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="relative">
-                    <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="שם מלא"
-                      className="w-full pl-12 p-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-400/90 transition-colors text-right"
-                      required
-                      disabled={loading}
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <FaPhone className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="מספר טלפון"
-                      className="w-full pl-12 p-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-400/90 transition-colors text-right"
-                      required
-                      disabled={loading}
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <FaEnvelope className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="כתובת אימייל"
-                      className="w-full pl-12 p-4 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange-400/90 transition-colors text-right"
-                      required
-                      disabled={loading}
-                    />
-                  </div>
-
-                  {/* הקפצ’ה – תופיע רק אחרי ניסיון שליחה */}
-                  {showCaptcha && RECAPTCHA_SITE_KEY && (
-                    <div className="flex justify-center">
-                      <ReCAPTCHA
-                        ref={recaptchaRef}
-                        sitekey={RECAPTCHA_SITE_KEY}
-                        onChange={handleCaptchaChange}
-                      />
+                <div className="mt-8 space-y-6">
+                  {benefits.map((benefit, i) => (
+                    <div key={i} className="flex items-start gap-4">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-orange/15 text-brand-orange-400">
+                        <benefit.icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold">{benefit.title}</h3>
+                        <p className="text-sm text-brand-blue-100/70">
+                          {benefit.description}
+                        </p>
+                      </div>
                     </div>
-                  )}
+                  ))}
+                </div>
 
-                  <motion.button
-                    type="submit"
-                    disabled={loading}
-                    whileHover={!loading ? { scale: 1.02 } : {}}
-                    whileTap={!loading ? { scale: 0.98 } : {}}
-                    className="w-full bg-gradient-to-br from-blue-900/90 to-blue-700/90 text-white py-4 px-6 rounded-lg hover:from-blue-800/90 hover:to-blue-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-normal text-xl relative overflow-hidden"
-                  >
-                    {loading ? (
-                      <motion.div
-                        className="flex items-center justify-center gap-3"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                      >
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{
-                            duration: 1,
-                            repeat: Infinity,
-                            ease: "linear",
-                          }}
-                          className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
-                        />
-                        שולח...
-                      </motion.div>
-                    ) : (
-                      "שלח עכשיו"
-                    )}
-                  </motion.button>
-                </form>
+                <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 border-t border-white/10 pt-6">
+                  {trustBadges.map((badge, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-2 text-sm text-brand-blue-100/90"
+                    >
+                      <badge.icon className="h-4 w-4 text-brand-orange-400" />
+                      {badge.text}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-                {message && (
+            {/* Form / Success card */}
+            <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-xl shadow-slate-200/50 lg:col-span-3 lg:p-10">
+              <AnimatePresence mode="wait">
+                {success ? (
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className={`mt-6 p-4 rounded-lg text-center ${
-                      message.includes("תודה")
-                        ? "bg-green-100 text-green-800"
-                        : "bg-red-100 text-red-800"
-                    }`}
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex h-full flex-col items-center justify-center py-10 text-center"
                   >
-                    <FaCheckCircle className="inline-block ml-2" />
-                    {message}
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
+                      className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-green-100"
+                    >
+                      <FaCheckCircle className="h-11 w-11 text-green-500" />
+                    </motion.div>
+                    <h2 className="text-3xl font-bold text-brand-blue-800">
+                      תודה רבה!
+                    </h2>
+                    <p className="mt-3 max-w-sm text-lg text-slate-600">
+                      קיבלנו את הפרטים וניצור איתכם קשר בקרוב. בינתיים אנחנו כבר
+                      בדרך 🚚
+                    </p>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="form"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <h2 className="mb-1 text-2xl font-bold text-brand-blue-800">
+                      מלאו את הטופס
+                    </h2>
+                    <p className="mb-8 text-slate-500">
+                      נחזור אליכם עם הצעה מותאמת אישית.
+                    </p>
+
+                    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                      <div className="grid gap-5 sm:grid-cols-2">
+                        {/* שם מלא */}
+                        <div>
+                          <label htmlFor="name" className={labelClass}>
+                            שם מלא <span className="text-brand-orange">*</span>
+                          </label>
+                          <div className="relative">
+                            <FaUser className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                            <input
+                              id="name"
+                              type="text"
+                              name="name"
+                              value={formData.name}
+                              onChange={handleChange}
+                              placeholder="ישראל ישראלי"
+                              className={inputClass}
+                              required
+                              aria-required="true"
+                              disabled={loading}
+                            />
+                          </div>
+                        </div>
+
+                        {/* שם עסק */}
+                        <div>
+                          <label htmlFor="businessName" className={labelClass}>
+                            שם עסק
+                          </label>
+                          <div className="relative">
+                            <FaBuilding className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                            <input
+                              id="businessName"
+                              type="text"
+                              name="businessName"
+                              value={formData.businessName}
+                              onChange={handleChange}
+                              placeholder="שם החברה"
+                              className={inputClass}
+                              disabled={loading}
+                            />
+                          </div>
+                        </div>
+
+                        {/* טלפון */}
+                        <div>
+                          <label htmlFor="phone" className={labelClass}>
+                            טלפון <span className="text-brand-orange">*</span>
+                          </label>
+                          <div className="relative">
+                            <FaPhone className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                            <input
+                              id="phone"
+                              type="tel"
+                              inputMode="tel"
+                              name="phone"
+                              value={formData.phone}
+                              onChange={handleChange}
+                              placeholder="050-0000000"
+                              className={inputClass}
+                              required
+                              aria-required="true"
+                              disabled={loading}
+                            />
+                          </div>
+                        </div>
+
+                        {/* אימייל */}
+                        <div>
+                          <label htmlFor="email" className={labelClass}>
+                            אימייל
+                          </label>
+                          <div className="relative">
+                            <FaEnvelope className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                            <input
+                              id="email"
+                              type="email"
+                              name="email"
+                              value={formData.email}
+                              onChange={handleChange}
+                              placeholder="name@example.com"
+                              className={inputClass}
+                              disabled={loading}
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* עיר */}
+                      <div>
+                        <label htmlFor="city" className={labelClass}>
+                          עיר
+                        </label>
+                        <div className="relative">
+                          <FaMapMarkerAlt className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                          <input
+                            id="city"
+                            type="text"
+                            name="city"
+                            value={formData.city}
+                            onChange={handleChange}
+                            placeholder="העיר שלכם"
+                            className={inputClass}
+                            disabled={loading}
+                          />
+                        </div>
+                      </div>
+
+                      {/* הערות */}
+                      <div>
+                        <label htmlFor="notes" className={labelClass}>
+                          הערות / פרטים נוספים
+                        </label>
+                        <div className="relative">
+                          <FaRegCommentDots className="pointer-events-none absolute right-4 top-4 text-slate-400" />
+                          <textarea
+                            id="notes"
+                            name="notes"
+                            value={formData.notes}
+                            onChange={handleChange}
+                            placeholder="ספרו לנו על צרכי המשלוחים שלכם..."
+                            rows={4}
+                            className={`${inputClass} resize-none`}
+                            disabled={loading}
+                          />
+                        </div>
+                      </div>
+
+                      {/* הקפצ’ה – תופיע רק אחרי ניסיון שליחה */}
+                      {showCaptcha && RECAPTCHA_SITE_KEY && (
+                        <div className="flex justify-center">
+                          <ReCAPTCHA
+                            ref={recaptchaRef}
+                            sitekey={RECAPTCHA_SITE_KEY}
+                            onChange={handleCaptchaChange}
+                          />
+                        </div>
+                      )}
+
+                      <motion.button
+                        type="submit"
+                        disabled={loading}
+                        whileHover={!loading ? { scale: 1.02 } : {}}
+                        whileTap={!loading ? { scale: 0.98 } : {}}
+                        className="flex w-full items-center justify-center gap-3 rounded-xl bg-brand-orange py-4 px-6 text-xl font-bold text-white shadow-lg shadow-brand-orange/30 transition-all hover:bg-brand-orange-500 disabled:cursor-not-allowed disabled:opacity-50"
+                      >
+                        {loading ? (
+                          <>
+                            <motion.div
+                              animate={{ rotate: 360 }}
+                              transition={{
+                                duration: 1,
+                                repeat: Infinity,
+                                ease: "linear",
+                              }}
+                              className="h-5 w-5 rounded-full border-2 border-white/30 border-t-white"
+                            />
+                            שולח...
+                          </>
+                        ) : (
+                          "שלח עכשיו"
+                        )}
+                      </motion.button>
+
+                      <p className="text-center text-xs text-slate-400">
+                        הפרטים שלכם מאובטחים ולא יועברו לצד שלישי.
+                      </p>
+                    </form>
+
+                    {message && (
+                      <motion.div
+                        role="alert"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mt-6 rounded-xl bg-amber-50 p-4 text-center text-sm text-amber-700"
+                      >
+                        {message}
+                      </motion.div>
+                    )}
                   </motion.div>
                 )}
-              </div>
-            </motion.div>
-
-            {/* trustBadges וכו' – כמו שהיה */}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
